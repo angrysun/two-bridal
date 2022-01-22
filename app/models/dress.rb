@@ -1,6 +1,8 @@
 class Dress < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
 
   validates :brand, :color, :size, :style, :description, presence: true
   validates :size, numericality: { only_integer: true }
