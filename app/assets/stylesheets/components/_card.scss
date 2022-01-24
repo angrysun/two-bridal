@@ -1,0 +1,28 @@
+.dress-card {
+  width: 300px;
+  margin-left: 24px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  img {
+    width: 286px;
+    padding-top: 8px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+  p {
+    text-align: left;
+    margin-left: 16px;
+    line-height: 16px;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(176, 176, 176);
+    float: right;
+    position: relative;
+    font-size: 24px;
+    margin-left: 8px;
+  }
+  a:hover {
+    color: pink
+  }
+}
