@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_dress
+  before_action :find_dress, only: %i[new create destroy]
 
   def new
     @booking = Booking.new
@@ -18,16 +18,14 @@ class BookingsController < ApplicationController
     # change status?
   end
 
-  # def destroy
-  #   @booking = Booking.find(params[:id])
-  #   flash[:remove] = "\"#{@dress.brand} dress\" removed from the bookings"
-  #   # flash message to notify dress has been removed from bookings
-  #   @booking.destroy
-  #   redirect_to bookings_path
-  #   # Is this the path we want to go to?
-  # end
-
-  # Commented out destroy method for now!
+  def destroy
+    @booking = Booking.find(params[:id])
+    flash[:remove] = "\"#{@dress.brand} dress\" removed from bookings"
+    # flash message to notify dress has been removed from bookings
+    @booking.destroy
+    redirect_to bookings_path
+    # Is this the path we want to go to?
+  end
 
   private
 
