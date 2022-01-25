@@ -7,8 +7,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.dress = @dress
-    @booking.user = @current_user
+
+    # @booking.dress = @dress
+    # @booking.user = current_user
+    # Uneeded due to passing user and dress in params
     if @booking.save
       redirect_to bookings_path
       # Is this the path we want to go to?
@@ -30,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:starting_date, :ending_date, :status)
+    params.require(:booking).permit(:starting_date, :ending_date, :status, :user_id, :dress_id)
   end
 
   def find_dress
