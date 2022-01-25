@@ -8,6 +8,10 @@
   </div>
 
   <div>
+    <p>Booking status: <%= @booking.status %></p>
+  </div>
+  <%# conditions so that only certain users can see the patch buttons and will change based on "booking status" %>
+  <div>
     <%= link_to 'Accept', booking_path(@booking), method: :patch, data: {confirm: "Are you sure?", params: {item: {status: 1 } } }, class: "btn btn-outline-dark"%>
   </div>
   <div>
