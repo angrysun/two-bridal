@@ -2,12 +2,15 @@
 
   <div>
     <h1 class="m-2">Javascript Carousel in here</h1>
-    <%= @dress.photo.key  %>
+
+    <%= @dress.photos.attached? ? cl_image_tag(@dress.photos.first.key) :
+    image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
     <%# Possibly an if statement here %>
   </div>
 
   <div>
     <h2 class="m-2">Add to favourites button here</h2>
+    <%= link_to 'Edit', edit_dress_path(@dress) %>
   </div>
 
   <div>

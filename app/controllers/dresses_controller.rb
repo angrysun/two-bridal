@@ -1,11 +1,11 @@
 class DressesController < ApplicationController
+  before_action :set_dress, only: %i[show edit update destroy]
+
   def index
     @dresses = Dress.all
   end
 
-  def show
-    @dress = Dress.find(params[:id])
-  end
+  def show; end
 
   def new
     @dress = Dress.new
@@ -21,8 +21,19 @@ class DressesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    @dress.update(dress_params)
+    @dress.user = current_user
+    if @dress.save
+      redirect_to dress_path(@dress)
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @dress = Dress.find(params[:id])
     @dress.destroy
     flash[:remove] = "Successfully deleted"
     #thanks for the great idea Gary
@@ -35,5 +46,9 @@ class DressesController < ApplicationController
   def dress_params
     params.require(:dress).permit(:brand, :color, :size, :style, :description,
                                   :price_per_day, photos: [])
+  end
+
+  def set_dress
+    @dress = Dress.find(params[:id])
   end
 end
