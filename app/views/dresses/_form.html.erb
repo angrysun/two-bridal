@@ -1,0 +1,10 @@
+<%= simple_form_for(@dress) do |f| %>
+  <%= f.input :brand %>
+  <%= f.input :color %>
+  <%= f.input :size %>
+  <%= f.input :style %>
+  <%= f.input :description %>
+  <%= f.input :price_per_day %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+<% end %>
+<%= link_to 'Back', root_path, class: 'btn btn-light' %>
