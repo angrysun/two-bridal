@@ -23,9 +23,10 @@ class DressesController < ApplicationController
 
   def destroy
     @dress = Dress.find(params[:id])
-    flash[:remove] = "\"#{@dress.brand} dress\" deleted"
-    #thanks for the great idea Gary
     @dress.destroy
+    flash[:remove] = "Successfully deleted"
+    #thanks for the great idea Gary
+
     redirect_to dresses_path
   end
 
@@ -33,6 +34,6 @@ class DressesController < ApplicationController
 
   def dress_params
     params.require(:dress).permit(:brand, :color, :size, :style, :description,
-                                  :price_per_day, :user_id, photos: [])
+                                  :price_per_day, photos: [])
   end
 end
