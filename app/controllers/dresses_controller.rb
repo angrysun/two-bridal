@@ -41,7 +41,6 @@ class DressesController < ApplicationController
     authorize @dress
     @dress.destroy
     flash[:remove] = "Successfully deleted"
-    #thanks for the great idea Gary
 
     redirect_to dresses_path
   end
