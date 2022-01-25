@@ -2,17 +2,21 @@ class DressesController < ApplicationController
   before_action :set_dress, only: %i[show edit update destroy]
 
   def index
-    @dresses = Dress.all
+    @dresses = policy_scope(Dress).order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    authorize @dress
+  end
 
   def new
     @dress = Dress.new
+    authorize @dress
   end
 
   def create
     @dress = Dress.new(dress_params)
+    authorize @dress
     @dress.user = current_user
     if @dress.save
       redirect_to dress_path(@dress)
@@ -34,6 +38,7 @@ class DressesController < ApplicationController
   end
 
   def destroy
+    authorize @dress
     @dress.destroy
     flash[:remove] = "Successfully deleted"
     #thanks for the great idea Gary
