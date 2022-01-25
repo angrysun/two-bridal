@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_dress, only: %i[new create destroy]
+  before_action :find_dress, only: %i[new show create destroy]
 
   # def index
   #   # @bookings = policy_scope(Booking).order(created_at: :desc)
