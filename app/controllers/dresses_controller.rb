@@ -1,18 +1,22 @@
 class DressesController < ApplicationController
+  before_action :set_dress, only: %i[show edit update destroy]
+
   def index
-    @dresses = Dress.all
+    @dresses = policy_scope(Dress).order(created_at: :desc)
   end
 
   def show
-    @dress = Dress.find(params[:id])
+    authorize @dress
   end
 
   def new
     @dress = Dress.new
+    authorize @dress
   end
 
   def create
     @dress = Dress.new(dress_params)
+    authorize @dress
     @dress.user = current_user
     if @dress.save
       redirect_to dress_path(@dress)
@@ -21,11 +25,25 @@ class DressesController < ApplicationController
     end
   end
 
+  def edit
+    authorize @dress
+  end
+
+  def update
+    authorize @dress
+    @dress.update(dress_params)
+    @dress.user = current_user
+    if @dress.save
+      redirect_to dress_path(@dress)
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @dress = Dress.find(params[:id])
+    authorize @dress
     @dress.destroy
     flash[:remove] = "Successfully deleted"
-    #thanks for the great idea Gary
 
     redirect_to dresses_path
   end
@@ -35,5 +53,9 @@ class DressesController < ApplicationController
   def dress_params
     params.require(:dress).permit(:brand, :color, :size, :style, :description,
                                   :price_per_day, photos: [])
+  end
+
+  def set_dress
+    @dress = Dress.find(params[:id])
   end
 end

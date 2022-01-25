@@ -1,21 +1,33 @@
 <div class="container">
 
   <div>
-    <h1 class="m-2">Javascript Carousel in here</h1>
-    <%= @dress.photo.key  %>
-    <%# Possibly an if statement here %>
+    
+    <%= @dress.photos.attached? ? cl_image_tag(@dress.photos.first.key) :
+    image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
+
   </div>
 
   <div>
-    <h2 class="m-2">Add to favourites button here</h2>
+    <%= link_to "Delete", dress_path(@dress), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-dark" %>
   </div>
-
   <div>
-    <h2><%= @dress.style %></h2>
-    <h3><%= @dress.description %></h3>
-    <p><%= @dress.brand %></p>
-    <p><%= @dress.size %></p>
-    <p><%= @dress.color %></p>
+    <%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-outline-dark" %>
   </div>
 
+  <div class="m-3">
+    <h3><%= @dress.style %> style dress designed by <%= @dress.brand %></h3>
+    <h4><%= @dress.description %></h4>
+    <p>Size: <%= @dress.size %></p>
+    <p>Color: <%= @dress.color %></p>
+    <p>Price Per Day: $<%= @dress.price_per_day %>
+  </div>
+
+  <h3>This Dress's Reviews</h3>
+  <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-primary'%>
+    <ul class="list-unstyled">
+      <% @dress.reviews.each do |review| %>
+        <li class="mb-3 shadow-sm p-2"><%= review.content %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
