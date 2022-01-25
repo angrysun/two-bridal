@@ -25,9 +25,12 @@ class DressesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @dress
+  end
 
   def update
+    authorize @dress
     @dress.update(dress_params)
     @dress.user = current_user
     if @dress.save
