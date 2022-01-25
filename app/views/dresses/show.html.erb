@@ -1,1 +1,21 @@
-<%= @dress %>
+<div class="container">
+
+  <div>
+    <h1 class="m-2">Javascript Carousel in here</h1>
+    <%= @dress.photo.key  %>
+    <%# Possibly an if statement here %>
+  </div>
+
+  <div>
+    <h2 class="m-2">Add to favourites button here</h2>
+  </div>
+
+  <div>
+    <h2><%= @dress.style %></h2>
+    <h3><%= @dress.description %></h3>
+    <p><%= @dress.brand %></p>
+    <p><%= @dress.size %></p>
+    <p><%= @dress.color %></p>
+  </div>
+
+</div>
