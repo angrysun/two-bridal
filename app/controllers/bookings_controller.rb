@@ -12,8 +12,8 @@ class BookingsController < ApplicationController
     # @booking.user = current_user
     # Uneeded due to passing user and dress in params
     if @booking.save
-      redirect_to bookings_path
-      # Is this the path we want to go to?
+      redirect_to booking_path
+      # Changed path from "bookings_path to booking_path."
     else
       render :new
     end
@@ -25,8 +25,8 @@ class BookingsController < ApplicationController
     flash[:remove] = "\"#{@dress.brand} dress\" removed from bookings"
     # flash message to notify dress has been removed from bookings
     @booking.destroy
-    redirect_to bookings_path
-    # Is this the path we want to go to?
+    redirect_to booking_path
+    # Changed path from "bookings_path to booking_path."
   end
 
   private
