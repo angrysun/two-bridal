@@ -23,17 +23,15 @@
     <p>Price Per Day: $<%= @dress.price_per_day %>
   </div>
 
-  <h3>This Dress's Reviews</h3>
-  <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-primary'%>
-    <ul class="list-unstyled">
-      <% @dress.reviews.each do |review| %>
-        <li class="mb-3 shadow-sm p-2"><%= review.content %></li>
-      <% end %>
-    </ul>
+    <h3>This Dress's Reviews
+      <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-outline-secondary'%>
+    </h3>
+      <ul class="list-unstyled pb-5">
+        <% @dress.reviews.each do |review| %>
+          <li class="mb-3 shadow-sm p-2"><%= review.comment %></li>
+        <% end %>
+      </ul>
+      <br>
+  
   <%= link_to 'Back', dresses_path, class: "btn btn-outline-dark mb-5" %>
-  </div>
-
-  <div>
-
-  </div>
 </div>
