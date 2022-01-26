@@ -1,5 +1,5 @@
 <%= simple_form_for [ @dress, @review ] do |f| %>
   <%= f.input :rating, collection: 1..5 %>
-  <%= f.input :content %>
+  <%= f.input :comment %>
   <%= f.submit class: 'btn btn-success mb-5'%>
 <% end %>
