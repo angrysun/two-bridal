@@ -11,7 +11,8 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user || owner == user
+    record.user == user
+    # this only allows the renting person to see it. Not the owner of the dress. code below was my attempt to fix that.
   end
 
   # def update?
