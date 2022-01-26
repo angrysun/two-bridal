@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   # def show
@@ -16,6 +17,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.dress = @dress
     @booking.user = current_user
     if @booking.save
@@ -29,6 +31,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     flash[:remove] = "\"#{@dress.brand} dress\" removed from bookings"
     # flash message to notify dress has been removed from bookings
     @booking.destroy
