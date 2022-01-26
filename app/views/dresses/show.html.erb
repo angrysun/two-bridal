@@ -1,9 +1,10 @@
 <div class="container">
 
   <div>
-    
+
     <%= @dress.photos.attached? ? cl_image_tag(@dress.photos.first.key) :
-    image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
+    cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+    <%# image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
 
   </div>
 
@@ -29,5 +30,10 @@
         <li class="mb-3 shadow-sm p-2"><%= review.content %></li>
       <% end %>
     </ul>
+  <%= link_to 'Back', dresses_path, class: "btn btn-outline-dark mb-5" %>
+  </div>
+
+  <div>
+
   </div>
 </div>
