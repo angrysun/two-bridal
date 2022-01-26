@@ -10,7 +10,7 @@
     </div>
 
     <div class="booking-info m-3 col-6">
-      <h3>Bookings</h3>
+      <h3 class="text-center">Bookings</h3>
       <% @bookings.each do |booking| %>
       <div class="dress-card text-center mb-3">
         <%= link_to dress_path(booking.dress) do %>
@@ -19,6 +19,7 @@
           cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
           <%# image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
         <% end %>
+          <p>Booked from <%= booking.starting_date %> until <%= booking.ending_date %></p>
       </div>
       <% end %>
     </div>
