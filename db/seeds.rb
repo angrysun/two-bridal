@@ -1,6 +1,6 @@
-# puts 'creating test user ...'
-# User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', last_name: 'Exantus')
-# puts 'done'
+puts 'creating test user ...'
+User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', last_name: 'Exantus')
+puts 'done'
 
 puts 'Deleting all dresses'
 Dress.destroy_all
