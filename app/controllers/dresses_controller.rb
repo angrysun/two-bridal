@@ -3,6 +3,12 @@ class DressesController < ApplicationController
 
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
+    @search = params[:search]
+    if @search == nil
+      @dresses = policy_scope(Dress).order(created_at: :desc)
+    else
+      @dresses = Dress.where('style LIKE ? OR description LIKE ? OR color LIKE ?', "%#{@search.capitalize}%", "%#{@search}%", "%#{@search.capitalize}%")
+    end
   end
 
   def show

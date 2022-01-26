@@ -1,6 +1,6 @@
-# puts 'creating test user ...'
-# User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', last_name: 'Exantus')
-# puts 'done'
+puts 'creating test user ...'
+User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', last_name: 'Exantus')
+puts 'done'
 
 puts 'Deleting all bookings'
 Booking.destroy_all
@@ -64,7 +64,7 @@ Dress.create(
   user_id: User.first.id
 )
 Dress.create(
-  brand: 'Phillipa Lev',
+  brand: 'Phillipa Lepley',
   color: 'Silver',
   size: 27,
   style: 'Princess',
@@ -74,7 +74,7 @@ Dress.create(
 )
 Dress.create(
   brand: 'Jenny Packham',
-  color: 'Cream',
+  color: 'Champagne',
   size: 12,
   style: 'Bateau',
   description: 'Modern twist on a classic dress. Simply gorgeous.',
@@ -91,7 +91,7 @@ Dress.create(
   user_id: User.first.id
 )
 Dress.create(
-  brand: 'Viv Westwood',
+  brand: 'Vivienne Westwood',
   color: 'Gold',
   size: 10,
   style: 'Column',
@@ -109,9 +109,9 @@ Dress.create(
   user_id: User.first.id
 )
 Dress.create(
-  brand: 'Alice Temp',
+  brand: 'Tony Ward',
   color: 'White',
-  size: 0,
+  size: 23,
   style: 'Mermaid',
   description: 'Small and elegant dress - for a petite bride.',
   price_per_day: 235,

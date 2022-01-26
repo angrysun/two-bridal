@@ -24,5 +24,4 @@ class BookingPolicy < ApplicationPolicy
     false
     # only admin can destroy and have the status of the booking go to completed or cancelled? Similar to Amazon,order history can't be deleted
   end
-
 end
