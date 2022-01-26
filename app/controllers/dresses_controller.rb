@@ -2,7 +2,6 @@ class DressesController < ApplicationController
   before_action :set_dress, only: %i[show edit update destroy]
 
   def index
-    @dresses = policy_scope(Dress).order(created_at: :desc)
     @search = params[:search]
     if @search == nil
       @dresses = policy_scope(Dress).order(created_at: :desc)
