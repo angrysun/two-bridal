@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @dress = @dress = Dress.find(@booking.dress_id)
+    @dress = @booking.dress
     authorize @booking
   end
 
