@@ -7,9 +7,21 @@ class BookingPolicy < ApplicationPolicy
 
   def create?
     true
+    # unless user(current_user) == dress.user_id(owner_id) | So that the owner cannot book their own dress
+  end
+
+  def show?
+    record.dress.user == user || record.user == user
+    # the owner and renter can see it
+  end
+
+  def update?
+    record.dress.user == user || record.user == user
+    # the owner and renter can see it
   end
 
   def destroy?
-    record.user == user
+    false
+    # only admin can destroy and have the status of the booking go to completed or cancelled? Similar to Amazon,order history can't be deleted
   end
 end

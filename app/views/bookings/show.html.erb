@@ -10,6 +10,8 @@
   <div>
     <p>Booking status: <%= @booking.status %></p>
   </div>
+<%
+=begin %>
   <%# conditions so that only certain users can see the patch buttons and will change based on "booking status" %>
   <div>
     <%= link_to 'Accept', booking_path(@booking), method: :patch, data: {confirm: "Are you sure?", params: {item: {status: 1 } } }, class: "btn btn-outline-dark"%>
@@ -17,8 +19,7 @@
   <div>
     <%= link_to 'Reject', booking_path(@booking), method: :patch, data: {confirm: "Are you sure?", params: {item: {status: 2 } } }, class: "btn btn-outline-dark"%>
   </div>
-<%
-=begin %>
+  links do not patch correctly to update as it is missing booking in params. Maybe a super simple form for this update action?
   <div>
     <%= link_to 'Cancel', booking_path(@booking), method: :patch, data: {confirm: "Are you sure?", params: {item: {status: 3 } } }, class: "btn btn-outline-dark"%>
   </div>
