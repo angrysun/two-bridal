@@ -25,7 +25,7 @@
   </div>
 
     <h3 class="m-3 my-5">This Dress's Reviews
-      <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-outline-secondary'%>
+      <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-outline-secondary float-right'%>
     </h3>
       <ul class="list-unstyled pb-5">
         <% @dress.reviews.each do |review| %>
