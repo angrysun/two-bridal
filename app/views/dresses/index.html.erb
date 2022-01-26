@@ -1,5 +1,16 @@
 <div class="container">
-  <h1 class="m-2">All our <%= @dresses.count %> dresses.</h1>
+  <h1 class="m-2">
+    <% if @dresses.count > 1 %>
+      <%= @dresses.count %> dresses
+    <% else %>
+      <%= @dresses.count %> dress
+    <% end %>
+    found for you
+
+  <%# <% @dresses.count > 1 ? @dresses.count dresses :
+     @dresses.count dress %>
+
+  </h1>
   <div class="row justify-content-center">
     <% @dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
