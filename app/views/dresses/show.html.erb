@@ -3,7 +3,8 @@
   <div>
 
     <%= @dress.photos.attached? ? cl_image_tag(@dress.photos.first.key) :
-    image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
+    cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+    <%# image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
 
   </div>
 
@@ -22,7 +23,6 @@
     <p>Price Per Day: $<%= @dress.price_per_day %>
   </div>
 
-
     <h3>This Dress's Reviews
       <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-outline-secondary'%>
     </h3>
@@ -32,5 +32,6 @@
         <% end %>
       </ul>
       <br>
-
+  
+  <%= link_to 'Back', dresses_path, class: "btn btn-outline-dark mb-5" %>
 </div>
