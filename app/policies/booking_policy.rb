@@ -11,20 +11,17 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
-    # this only allows the renting person to see it. Not the owner of the dress. code below was my attempt to fix that.
+    record.dress.user == user || record.user == user
+    # the owner and renter can see it
   end
 
-  # def update?
-  #   dress = Dress.find(record.dress_id)
-  #   owner = dress.user_id
-  #   record.user == user || owner == user
-  #   # This logic should only let the owner of the dress and person who made the booking auhtorized?
-  # end
+  def update?
+    record.dress.user == user || record.user == user
+    # the owner and renter can see it
+  end
 
   def destroy?
-    record.user == user
-    # only admin can destroy and have the status of the booking go to completed or cancelled? Similar to Amazon,order history cant be deleted
+    # only admin can destroy and have the status of the booking go to completed or cancelled? Similar to Amazon,order history can't be deleted
   end
 
 end

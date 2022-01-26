@@ -27,7 +27,14 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-    # change status?
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = booking_params[:status]
+    authorize @booking
+    @booking.save
+    redirect_to booking_path(@booking)
   end
 
   def destroy
@@ -39,14 +46,6 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
     # Changed path back to "bookings path""
   end
-
-  # def update
-  #   @booking = Booking.find(params[:id])
-  #   @booking.update(booking_params)
-  #   authorize @booking
-  #   redirect_to booking_path(@booking)
-  # end
-  # update not working yet
 
   private
 
