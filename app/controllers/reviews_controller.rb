@@ -4,11 +4,13 @@ class ReviewsController < ApplicationController
 
   def new
     @dress = Dress.find(params[:dress_id])
+    authorize @review
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @dress = Dress.find(params[:dress_id])
     @review.dress = @dress
     if @review.save
