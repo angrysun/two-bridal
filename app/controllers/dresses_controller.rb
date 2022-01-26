@@ -13,6 +13,7 @@ class DressesController < ApplicationController
 
   def show
     authorize @dress
+    @booking = Booking.new
   end
 
   def new

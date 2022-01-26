@@ -21,9 +21,10 @@
     <p>Size: <%= @dress.size %></p>
     <p>Color: <%= @dress.color %></p>
     <p>Price Per Day: $<%= @dress.price_per_day %>
+    <%= link_to 'Book Dress', new_dress_booking_path(@dress), class: 'btn btn-dark  float-right' %>
   </div>
 
-    <h3>This Dress's Reviews
+    <h3 class="m-3 my-5">This Dress's Reviews
       <%= link_to 'Leave a Review', new_dress_review_path(@dress), class: 'btn btn-outline-secondary'%>
     </h3>
       <ul class="list-unstyled pb-5">
@@ -31,7 +32,6 @@
           <li class="mb-3 shadow-sm p-2"><%= review.comment %></li>
         <% end %>
       </ul>
-      <br>
 
   <%= link_to 'Back', dresses_path, class: "btn btn-outline-dark mb-5" %>
 </div>
