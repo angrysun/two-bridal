@@ -40,12 +40,13 @@ class BookingsController < ApplicationController
     # Changed path back to "bookings path""
   end
 
-  def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    authorize @booking
-    redirect_to booking_path(@booking)
-  end
+  # def update
+  #   @booking = Booking.find(params[:id])
+  #   @booking.update(booking_params)
+  #   authorize @booking
+  #   redirect_to booking_path(@booking)
+  # end
+  # update not working yet
 
   private
 
