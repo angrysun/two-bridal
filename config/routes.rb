@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     # changed routing as index should be seperate. Show & Update should be associated with the correct user not the dress.
   end
   resources :reviews, only: [:destroy]
+  get '/profile', to: 'pages#profile'
 end
