@@ -4,8 +4,9 @@ class ReviewsController < ApplicationController
 
   def new
     @dress = Dress.find(params[:dress_id])
-    authorize @review
+    authorize @dress
     @review = Review.new
+    authorize @review
   end
 
   def create
