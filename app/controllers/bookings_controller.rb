@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  before_action :set_dress, only: %i[new create destroy]
   before_action :set_booking, only: %i[update destroy]
 
 
@@ -14,7 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    authorize @booking
+    @dress = Dress.find(params[:dress_id])
     @booking.dress = @dress
     @booking.user = current_user
     authorize @booking
@@ -29,13 +28,13 @@ class BookingsController < ApplicationController
   def update
     @booking.status = booking_params[:status]
     authorize @booking
-    @booking.save
+    @booking.update
     redirect_to booking_path(@booking)
   end
 
   def destroy
     authorize @booking
-    flash[:remove] = "\"#{@dress.brand} dress\" removed from bookings"
+    flash[:remove] = "\"#{@booking.dress.brand} dress\" removed from bookings"
     # flash message to notify dress has been removed from bookings
     @booking.destroy
     redirect_to bookings_path
@@ -46,10 +45,6 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:starting_date, :ending_date, :status)
-  end
-
-  def set_dress
-    @dress = Dress.find(params[:dress_id])
   end
 
   def set_booking
