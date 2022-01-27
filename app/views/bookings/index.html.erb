@@ -5,13 +5,11 @@
     <% @bookings.each do |booking| %>
       <% if booking.user == current_user %>
        <%# this if checks that the user is the person booking the dress %>
-      <% booked_dress = booking.dress %>
         <div class="dress-card text-center mb-3">
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
-          <% booker = booking.user %>
-          <p>Booker:<%= booker.last_name%></p>
-          <p>$<%= booked_dress.price_per_day %> per day</p>
+          <p>Booker:<%= booking.user.last_name%></p>
+          <p>$<%= booking.dress.price_per_day %> per day</p>
           <p><%= booking.starting_date %></p>
           <p><%= booking.ending_date %></p>
         </div>
@@ -24,13 +22,11 @@
     <% @bookings.each do |booking| %>
       <% if booking.dress.user == current_user %>
       <%# this if checks that the user is the owner of the dress %>
-      <% listed_dress = booking.dress %>
         <div class="dress-card text-center mb-3">
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
-          <% booker = booking.user %>
-          <p>Booker:<%= booker.last_name%></p>
-          <p>$<%= listed_dress.price_per_day %> per day</p>
+          <p>Booker:<%= booking.user.last_name%></p>
+          <p>$<%= booking.dress.price_per_day %> per day</p>
           <%# neeed to provide price based on days rented %>
           <p><%= booking.starting_date %></p>
           <p><%= booking.ending_date %></p>
