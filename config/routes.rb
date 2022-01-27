@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[destroy index update]
   resources :reviews, only: [:destroy]
   get '/profile', to: 'pages#profile'
+  get '/dresses/:id/favorite', to: 'dresses#favorite', as: 'favorite'
 end

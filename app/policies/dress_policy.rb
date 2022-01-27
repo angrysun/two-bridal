@@ -20,4 +20,8 @@ class DressPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def favorite?
+    true
+  end
 end
