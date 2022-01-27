@@ -10,11 +10,6 @@ class BookingPolicy < ApplicationPolicy
     # unless user(current_user) == dress.user_id(owner_id) | So that the owner cannot book their own dress
   end
 
-  def show?
-    record.dress.user == user || record.user == user
-    # the owner and renter can see it
-  end
-
   def update?
     record.dress.user == user || record.user == user
     # the owner and renter can see it
