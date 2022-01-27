@@ -5,8 +5,13 @@
     <% @fav_dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
       <%= link_to dress_path(dress) do %>
-        <%= dress.photos.attached? ? cl_image_tag(dress.photos.first.key) :
-        cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+        <% if dress.photos.attached? %>
+          <%= cl_image_tag(dress.photos.first.key) %>
+        <% elsif dress.dress_url.present? %>
+          <%= image_tag(dress.dress_url) %>
+        <% else %>
+          <%= image_tag("bridal_gown_silhouette.png") %>
+        <% end %>
       <% end %>
       <span class="favorite">
       <% if current_user.favorited?(dress) %>
