@@ -1,5 +1,5 @@
 class DressesController < ApplicationController
-  before_action :set_dress, only: %i[show edit update destroy]
+  before_action :set_dress, only: %i[show edit update destroy favorite]
 
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
@@ -51,6 +51,17 @@ class DressesController < ApplicationController
     authorize @dress
     @dress.destroy
     flash[:remove] = "Successfully deleted"
+
+    redirect_to dresses_path
+  end
+
+  def favorite
+    authorize @dress
+    if current_user.favorited?(@dress)
+      current_user.unfavorite(@dress)
+    else
+      current_user.favorite(@dress)
+    end
 
     redirect_to dresses_path
   end
