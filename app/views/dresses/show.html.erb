@@ -6,6 +6,10 @@
           <%= cl_image_tag photo.key %>
         </div>
       <% end %>
+    <% elsif @dress.dress_url.present? %>
+      <div class="dress-card text-center mb-3">
+        <%= image_tag(@dress.dress_url) %>
+      </div>
     <% else %>
       <div class="dress-card text-center mb-3">
         <%= cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
