@@ -66,6 +66,12 @@ class DressesController < ApplicationController
     redirect_to dresses_path
   end
 
+  def favorites
+    @dresses = policy_scope(Dress).order(created_at: :desc)
+    @fav_dresses = current_user.all_favorited
+    authorize @dresses
+  end
+
   private
 
   def dress_params
