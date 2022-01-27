@@ -3,6 +3,8 @@ class DressesController < ApplicationController
 
   def index
     @search = params[:search]
+    @dresses = policy_scope(Dress).order(created_at: :desc)
+
     if @search == nil
       @dresses = policy_scope(Dress).order(created_at: :desc)
     else
