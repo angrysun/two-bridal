@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="my-3">Your Favorites</h1>
+
+  <div class="row justify-content-center">
+    <% @fav_dresses.each do |dress| %>
+    <div class="dress-card text-center mb-3">
+      <%= link_to dress_path(dress) do %>
+        <%= dress.photos.attached? ? cl_image_tag(dress.photos.first.key) :
+        cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+      <% end %>
+      <span class="favorite">
+      <% if current_user.favorited?(dress) %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart pink" %>
+      <% else %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart" %>
+      <% end %>
+      </span>
+      <p><%= dress.description %></p>
+      <p>$<%= dress.price_per_day %> per day</p>
+    </div>
+    <% end %>
+  </div>
+</div>

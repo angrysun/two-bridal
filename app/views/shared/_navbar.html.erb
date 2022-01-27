@@ -33,7 +33,7 @@
               <%#want to make an if/else here for owners of dresses to see their current listings after we figure out the owner logic %>
 
               <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Your Favorites", "#", class: "dropdown-item" %>
+              <%= link_to "Your Favorites", favorites_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

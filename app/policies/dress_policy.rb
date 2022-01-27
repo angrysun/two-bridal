@@ -24,4 +24,8 @@ class DressPolicy < ApplicationPolicy
   def favorite?
     true
   end
+
+  def favorites?
+    true
+  end
 end
