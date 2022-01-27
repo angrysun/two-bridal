@@ -1,22 +1,25 @@
 <div class="container">
-  <h1 class="m-2">
-    <% if @dresses.count > 1 %>
-      <%= @dresses.count %> dresses
+  <h2 class="my-3">
+    <% if @search == nil %>
+    All Our Dresses
+    <% elsif @dresses.count > 1 %>
+      <%= @dresses.count %> dresses found for you
+    <% elsif @dresses.count == 1 %>
+      <%= @dresses.count %> dress found for you
     <% else %>
-      <%= @dresses.count %> dress
+      Sorry, no results were found for "<%= @search %>."
     <% end %>
-    found for you
-
   <%# <% @dresses.count > 1 ? @dresses.count dresses :
      @dresses.count dress %>
+  </h2>
 
-  </h1>
   <div class="row justify-content-center">
     <% @dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
       <%= link_to dress_path(dress) do %>
         <%= dress.photos.attached? ? cl_image_tag(dress.photos.first.key) :
         cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+        <%# <%= image_tag ('fgd.png'), :alttext %>
       <% end %>
       <span class="favorite"><%= link_to "", dresses_path, class: "fa fa-heart"%></span>
       <p><%= dress.description %></p>
