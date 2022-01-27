@@ -19,6 +19,7 @@
       <%= link_to dress_path(dress) do %>
         <%= dress.photos.attached? ? cl_image_tag(dress.photos.first.key) :
         cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+        <%# <%= image_tag ('fgd.png'), :alttext %>
       <% end %>
       <span class="favorite"><%= link_to "", dresses_path, class: "fa fa-heart"%></span>
       <p><%= dress.description %></p>
