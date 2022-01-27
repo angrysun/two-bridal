@@ -27,7 +27,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.status = booking_params[:status]
     authorize @booking
     @booking.save
@@ -35,7 +34,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     authorize @booking
     flash[:remove] = "\"#{@dress.brand} dress\" removed from bookings"
     # flash message to notify dress has been removed from bookings
