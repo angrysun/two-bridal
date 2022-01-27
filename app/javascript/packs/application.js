@@ -35,6 +35,7 @@ document.addEventListener("turbolinks:load", () => {
 
   $('.owl-carousel').owlCarousel({
     loop: true,
+    center: true,
     autoplay: true,
     autoplayHoverPause: true,
     margin: 0,
