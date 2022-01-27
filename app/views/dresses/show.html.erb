@@ -1,11 +1,16 @@
 <div class="container">
-
-  <div>
-
-    <%= @dress.photos.attached? ? cl_image_tag(@dress.photos.first.key) :
-    cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
-    <%# image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
-
+  <div class="row justify-content-center">
+    <% if @dress.photos.attached? %>
+      <% @dress.photos.each do |photo| %>
+        <div class="dress-card text-center mb-3">
+          <%= cl_image_tag photo.key %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="dress-card text-center mb-3">
+        <%= cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+      </div>
+    <% end %>
   </div>
 
   <div>
