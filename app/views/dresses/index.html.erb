@@ -25,7 +25,13 @@
           <%= image_tag("bridal_gown_silhouette.png") %>
         <% end %>
       <% end %>
-      <span class="favorite"><%= link_to "", dresses_path, class: "fa fa-heart"%></span>
+      <span class="favorite">
+      <% if dress.favorited_by?(current_user) %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart pink" %>
+      <% else %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart" %>
+      <% end %>
+      </span>
       <p><%= dress.description %></p>
       <p>$<%= dress.price_per_day %> per day</p>
     </div>
