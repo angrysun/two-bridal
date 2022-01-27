@@ -23,9 +23,6 @@
           </div>
         </div>
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <%= current_user.avatar.attached? ? cl_image_tag(current_user.avatar.key) :
             cl_image_tag('nqnlqlo8l8ofotwadqms', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
