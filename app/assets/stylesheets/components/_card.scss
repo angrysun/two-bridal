@@ -28,3 +28,22 @@
     color: pink
   }
 }
+
+.booking-card {
+  width: 200px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 8px 0px 16px 0px;
+    // top margin is 8px, right margin is 0px, bottom is 16px, left is 0px
+    border-radius: 8px;
+  }
+  p {
+    text-align: left;
+    margin-left: 4px;
+    line-height: 1.1rem;
+  }
+}
