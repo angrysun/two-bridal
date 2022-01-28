@@ -52,7 +52,7 @@ class DressesController < ApplicationController
     @dress.destroy
     flash[:remove] = "Successfully deleted"
 
-    redirect_to dresses_path
+    redirect_to listings_path
   end
 
   def favorite
