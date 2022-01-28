@@ -1,4 +1,57 @@
 <div class="container">
+  <div class="row justify-content-around">
+    <div class="col-6 mt-3">
+      <div class="user-info my-5 mr-5 ml-5">
+        <h3 class="text-center">User Information</h3>
+        <ul class="list-unstyled">
+          <li class="mb-1">Full Name: <%= "#{current_user.first_name} #{current_user.last_name}" %></li>
+          <li class="mb-1">Current email address: <%= current_user.email %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6 mt-3">
+      <h3 class="text-center">Current Bookings</h3>
+      <div class="row">
+        <% @bookings.each do |booking| %>
+        <% if booking.ending_date >= Date.today %>
+          <div class= "row">
+            <div class="booking-card mb-3 mr-5 ml-5">
+              <div class="booking-info my-5">
+                <%= link_to dress_path(booking.dress) do %>
+                  <% # Image tag to be updated with cloudinary %>
+                  <%= booking.dress.photos.attached? ? cl_image_tag(booking.dress.photos.first.key) :
+                        cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
+                  <% # image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
+                <% end %>
+                  <% if booking.status == "pending" %>
+                    <div class="d-flex justify-content-around">
+                      <%= simple_form_for booking do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                        <%= f.submit 'Accept', class: 'btn btn-outline-dark mb-5 mx-1' %>
+                      <% end %>
+                      <%= simple_form_for booking do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                        <%= f.submit 'Reject', class: 'btn btn-outline-dark mb-5 mx-1' %>
+                      <% end %>
+                    </div>
+                  <% elsif booking.status == "rejected" %>
+                    <p>Rejected</p>
+                  <% else %>
+                    <p>Accepted</p>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%
+=begin %>
+<div class="container">
   <div class="row justify-content-center">
     <div class="user-info my-5 mr-5 ml-5">
       <h3 class="text-center">User Information</h3>
@@ -28,3 +81,5 @@
 
   </div>
 </div>
+<%
+=end %>
