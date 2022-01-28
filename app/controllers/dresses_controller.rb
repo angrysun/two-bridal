@@ -7,7 +7,17 @@ class DressesController < ApplicationController
     if @search.nil?
       @dresses = policy_scope(Dress).order(created_at: :desc)
     else
-      @dresses = Dress.where('style LIKE ? OR description LIKE ? OR color LIKE ?', "%#{@search.capitalize}%", "%#{@search}%", "%#{@search.capitalize}%")
+      @dresses = Dress.where('style LIKE ? OR description LIKE ? OR color LIKE ?',
+                             "%#{@search.capitalize}%", "%#{@search}%", "%#{@search.capitalize}%")
+    end
+
+    @markers = @dresses.geocoded.map do |dress|
+      {
+        lat: dress.latitude,
+        lng: dress.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dress: dress }),
+        image_url: helpers.asset_url('wedding_dress_dark.png')
+      }
     end
   end
 
@@ -76,7 +86,7 @@ class DressesController < ApplicationController
 
   def dress_params
     params.require(:dress).permit(:brand, :color, :size, :style, :description,
-                                  :price_per_day, photos: [])
+                                  :price_per_day, :location, :longitude, :latitude, photos: [])
   end
 
   def set_dress

@@ -24,6 +24,7 @@
         <% else %>
           <%= image_tag("bridal_gown_silhouette.png") %>
         <% end %>
+        <%# <%= render 'shared/dress_images', dress: @dress %>
       <% end %>
       <span class="favorite">
       <% if dress.favorited_by?(current_user) %>
@@ -37,4 +38,9 @@
     </div>
     <% end %>
   </div>
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
