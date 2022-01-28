@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="my-3">Your Listings</h2>
+  <h3>
+    <% if @dresses.count == 0 %>
+      No listings yet!
+      <%= link_to 'Add a new dress?', new_dress_path, class: 'card-link' %>
+    <% end %>
+  </h3>
+  <%# <% @dresses.count > 1 ? @dresses.count dresses :
+     @dresses.count dress %>
+  <div class="row justify-content-center">
+    <% @dresses.each do |dress| %>
+    <div class="dress-card text-center mb-3 listings">
+      <%= link_to dress_path(dress) do %>
+        <% if dress.photos.attached? %>
+          <%= cl_image_tag(dress.photos.first.key) %>
+        <% elsif dress.dress_url.present? %>
+          <%= image_tag(dress.dress_url) %>
+        <% else %>
+          <%= image_tag("bridal_gown_silhouette.png") %>
+        <% end %>
+      <% end %>
+      <p><%= dress.description %></p>
+      <p>$<%= dress.price_per_day %> per day</p>
+      <div class="edit-dress">
+        <%= link_to "Delete", dress_path(dress), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-dark mb-5 mx-1" %>
+        <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-outline-dark mb-5 mx-1" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

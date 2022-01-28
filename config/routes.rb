@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get '/dresses/favorites', to: 'dresses#favorites', as: 'favorites'
+  get 'listings', to: 'pages#listings', as: 'listings'
   resources :dresses do
     resources :bookings, only: %i[new create]
     resources :reviews, only: %i[new create]
