@@ -23,6 +23,20 @@
                 <%= image_tag("bridal_gown_silhouette.png") %>
               <% end %>
             <% end %>
+              <p>Booked from <%= booking.starting_date %> until <%= booking.ending_date %></p>
+              <p>Status: <%= booking.status.capitalize %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
+</div>
+
+
+<%
+=begin %>
             <div class="d-flex justify-content-center confirm-button">
               <% if booking.status == "pending" %>
                 <%= simple_form_for booking do |f| %>
@@ -39,11 +53,5 @@
                 <p>Accepted</p>
               <% end %>
             </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
-</div>
+<%
+=end %>
