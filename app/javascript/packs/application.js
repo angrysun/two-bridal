@@ -42,8 +42,7 @@ document.addEventListener("turbolinks:load", () => {
     center: true,
     autoplay: true,
     autoplayHoverPause: true,
-    margin: 0,
-    stagePadding: 0,
+    touchDrag: true,
     responsive: {
       0: {
         items: 1
