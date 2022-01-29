@@ -70,11 +70,11 @@
           <div class="booking-card ml-5 mx-auto">
             <%= link_to dress_path(booking.dress) do %>
               <% if booking.dress.photos.attached? %>
-                <%= cl_image_tag(booking.dress.photos.first.key, class: 'card-img-top') %>
+                <%= cl_image_tag(booking.dress.photos.first.key) %>
               <% elsif booking.dress.dress_url.present? %>
-                <%= image_tag(booking.dress.dress_url, class: 'card-img-top') %>
+                <%= image_tag(booking.dress.dress_url) %>
               <% else %>
-                <%= image_tag("bridal_gown_silhouette.png", class: 'card-img-top') %>
+                <%= image_tag("bridal_gown_silhouette.png") %>
               <% end %>
             <% end %>
             <div class="d-flex justify-content-center confirm-button">
