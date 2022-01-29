@@ -4,7 +4,7 @@
 
   <div class="m-3">
     <h3><%= @dress.style %> style dress designed by <%= @dress.brand %></h3>
-    <h4><%= @dress.description %></h4>
+    <p><%= @dress.description %></p>
     <p>Size: <%= @dress.size %></p>
     <p>Color: <%= @dress.color %></p>
     <p>Price Per Day: $<%= @dress.price_per_day %>
@@ -21,5 +21,5 @@
       </ul>
 
 
-  <%= link_to 'Back', dresses_path, class: "btn btn-outline-dark mb-5 mx-1" %>
+  <%= link_to 'Back', dresses_path, class: "btn btn-outline-secondary mb-5 mx-1" %>
 </div>
