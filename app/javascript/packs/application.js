@@ -21,7 +21,9 @@ ActiveStorage.start();
 import "bootstrap";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initDate_calc } from '../plugins/date_calc';
 import { initAutocomplete } from "../plugins/init_autocomplete";
+
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
@@ -34,6 +36,7 @@ document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpickr();
+  initDate_calc();
   initMapbox();
   initAutocomplete();
 
