@@ -5,8 +5,11 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @bookings = Booking.where('user_id = ?', current_user)
-    @booked = Booking.where('dress.user = ?', current_user)
+    @bookings = Booking.where(user: current_user).where('ending_date >= ?', Date.today)
+    @booked = Booking.joins(:dress).where(
+      dress: { user: current_user }
+      # it is possible to nest curlies
+    )
   end
 
   def listings
