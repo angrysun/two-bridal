@@ -21,10 +21,13 @@
               <div class="booking-card mb-3 mr-5 ml-5">
                 <div class="booking-info my-5">
                   <%= link_to dress_path(booking.dress) do %>
-                    <% # Image tag to be updated with cloudinary %>
-                    <%= booking.dress.photos.attached? ? cl_image_tag(booking.dress.photos.first.key) :
-                          cl_image_tag("c3mvlbwttkpafkm6iwqh") %>
-                    <% # image_tag('https://images.unsplash.com/photo-1557363763-8381968f8353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') %>
+                    <% if booking.dress.photos.attached? %>
+                      <%= cl_image_tag(booking.dress.photos.first.key, class: 'card-img-top') %>
+                    <% elsif booking.dress.dress_url.present? %>
+                      <%= image_tag(booking.dress.dress_url, class: 'card-img-top') %>
+                    <% else %>
+                      <%= image_tag("bridal_gown_silhouette.png", class: 'card-img-top') %>
+                    <% end %>
                   <% end %>
                     <% if booking.status == "pending" %>
                       <div class="d-flex justify-content-around">
