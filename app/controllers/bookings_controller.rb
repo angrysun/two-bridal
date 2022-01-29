@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
   before_action :find_dress, only: %i[new create destroy]
   before_action :find_booking, only: %i[update destroy]
 
-
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
@@ -27,9 +26,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.status = booking_params[:status]
     authorize @booking
-    @booking.update
+    @booking.status = booking_params[:status]
+    @booking.update(booking_params)
+    # had to pass an argument of booking_params to make it work for me
     redirect_to profile_path
   end
 
