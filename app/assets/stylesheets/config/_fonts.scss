@@ -1,9 +1,11 @@
 // Import Google fonts
-@import url('https://fonts.google.com/share?selection.family=Montserrat:wght@700%7COpen%20Sans:wght@300');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Open-sans";
-$headers-font: "Monserrat";
+$body-font: "open sans";
+$headers-font: "montserrat";
+$headers-weight: 700;
+$body-weight: 400;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
