@@ -73,7 +73,9 @@ class DressesController < ApplicationController
       current_user.favorite(@dress)
     end
 
-    redirect_to dresses_path
+    respond_to do |format|
+      format.js
+    end
   end
 
   def favorites
