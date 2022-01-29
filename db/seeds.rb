@@ -1,13 +1,15 @@
+puts 'Deleting all bookings'
+Booking.destroy_all
+puts "Done"
+puts 'Deleting all reviews ... '
+Review.destroy_all
 puts 'Deleting all users ...'
 User.destroy_all
 puts 'Creating test user ...'
 User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', last_name: 'Exantus')
-# mao = User.create(email: 'fun@yahoo.co.jp', password: 'qwerty09', first_name: 'Mao', last_name: 'Hasegawa')
+User.create(email: 'fun@yahoo.co.jp', password: 'qwerty09', first_name: 'Mao', last_name: 'Hasegawa')
 puts 'Done'
 
-puts 'Deleting all bookings'
-Booking.destroy_all
-puts "Done"
 
 puts 'Deleting all dresses'
 Dress.destroy_all
