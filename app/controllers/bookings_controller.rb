@@ -33,14 +33,14 @@ class BookingsController < ApplicationController
     redirect_to profile_path
   end
 
-  # def destroy
-  #   authorize @booking
-  #   flash[:remove] = "\"#{@booking.dress.brand} dress\" removed from bookings"
-  #   # flash message to notify dress has been removed from bookings
-  #   @booking.destroy
-  #   redirect_to bookings_path
-  #   # Changed path back to "bookings path""
-  # end
+  def destroy
+    authorize @booking
+    flash[:remove] = "\"#{@booking.dress.brand} dress\" removed from bookings"
+    # flash message to notify dress has been removed from bookings
+    @booking.destroy
+    redirect_to bookings_path
+    # Changed path back to "bookings path""
+  end
 
   private
 
