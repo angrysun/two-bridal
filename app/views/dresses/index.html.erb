@@ -27,11 +27,11 @@
         <%# <%= render 'shared/dress_images', dress: @dress %>
       <% end %>
       <span class="favorite">
-      <% if dress.favorited_by?(current_user) %>
-        <%= link_to "", favorite_path(dress), class: "fa fa-heart pink" %>
-      <% else %>
-        <%= link_to "", favorite_path(dress), class: "fa fa-heart" %>
-      <% end %>
+        <% if dress.favorited_by?(current_user) %>
+          <%= link_to "", favorite_path(dress), class: "fa fa-heart pink", id: "favorite-button-#{dress.id}", remote: true %>
+        <% else %>
+          <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
+        <% end %>
       </span>
       <p><%= dress.description %></p>
       <p>$<%= dress.price_per_day %> per day</p>
