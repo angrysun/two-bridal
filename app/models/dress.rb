@@ -12,4 +12,11 @@ class Dress < ApplicationRecord
   validates :size, numericality: { only_integer: true }
   validates :price_per_day, numericality: { only_integer: true }
   acts_as_favoritable
+
+  include PgSearch::Model
+  pg_search_scope :search_dresses,
+                  against: %i[brand color style description],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

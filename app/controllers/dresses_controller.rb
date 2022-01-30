@@ -3,22 +3,20 @@ class DressesController < ApplicationController
 
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
-    @search = params[:search]
-    if @search.nil?
-      @dresses = policy_scope(Dress).order(created_at: :desc)
+    if params[:query].present?
+      @dresses = Dress.search_dresses(params[:query])
     else
-      @dresses = Dress.where('style LIKE ? OR description LIKE ? OR color LIKE ?',
-                             "%#{@search.capitalize}%", "%#{@search}%", "%#{@search.capitalize}%")
+      @dresses = Dress.all
     end
 
-    @markers = @dresses.geocoded.map do |dress|
-      {
-        lat: dress.latitude,
-        lng: dress.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { dress: dress }),
-        image_url: helpers.asset_url('wedding_dress_dark.png')
-      }
-    end
+    # @markers = @dresses.geocoded.map do |dress|
+    #   {
+    #     lat: dress.latitude,
+    #     lng: dress.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { dress: dress }),
+    #     image_url: helpers.asset_url('wedding_dress_dark.png')
+    #   }
+    # end
   end
 
   def show
