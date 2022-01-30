@@ -42,6 +42,15 @@ class BookingsController < ApplicationController
     # Changed path back to "bookings path""
   end
 
+  def profile
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = Booking.where(user: current_user).where('ending_date >= ?', Date.today)
+    @booked = Booking.joins(:dress).where(
+      dress: { user: current_user }
+    )
+    authorize @bookings
+  end
+
   private
 
   def booking_params

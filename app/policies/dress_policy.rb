@@ -28,4 +28,8 @@ class DressPolicy < ApplicationPolicy
   def favorites?
     true
   end
+
+  def listings?
+    true
+  end
 end
