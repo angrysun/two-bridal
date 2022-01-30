@@ -84,6 +84,12 @@ class DressesController < ApplicationController
     authorize @dresses
   end
 
+  def listings
+    @dresses = policy_scope(Dress).order(created_at: :desc)
+    @dresses = Dress.where('user_id = ?', current_user)
+    authorize @dresses
+  end
+
   private
 
   def dress_params
