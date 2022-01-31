@@ -10,6 +10,11 @@
     </div>
     <%# booking cards by renter %>
     <div class="my-5 col-lg-8 col-12">
+      <% if @bookings.empty? %>
+      <h3 class="text-center mb-5 border-bottom pb-5">No Bookings Yet!
+        <%= link_to "Browse Dresses", dresses_path, class: 'card-link' %>
+      </h3>
+      <% else %>
       <h3 class="text-center">Current Bookings</h3>
       <div class="row booking-info justify-content-center">
         <% @bookings.each do |booking| %>
@@ -29,9 +34,10 @@
           </div>
         </div>
         <% end %>
+        <% end %>
         <%# booking cards awaiting confirmation - owner %>
         <div class="container">
-          <% if @booked %>
+          <% if @booked.present? %>
             <h3 class="text-center">Booking Requests</h3>
             <div class="row booking-info justify-content-center">
               <% @booked.each do |booking| %>
@@ -70,6 +76,6 @@
         </div>
       </div>
     </div>
+  <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3 inline-block' %>
   </div>
-  <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
 </div>
