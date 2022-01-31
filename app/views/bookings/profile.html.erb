@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row justify-content-between p-3">
-    <div class="justify-content-center user-info my-5 col-lg-3 col-12">
+    <div class="justify-content-center user-info my-5 col-lg-4 col-12">
       <h3 class="text-center">User Information</h3>
       <ul class="list-unstyled text-center text-lg-left">
         <li class="mb-1">Full Name: <%= "#{current_user.first_name} #{current_user.last_name}" %></li>
         <li class="mb-1">Current email address: <%= current_user.email %></li>
+        <%= link_to "Edit Information", edit_user_registration_path, class: 'btn btn-outline-secondary my-2' %>
       </ul>
     </div>
-
-    <div class="my-5 col-lg-9 col-12">
+    <%# booking cards by renter %>
+    <div class="my-5 col-lg-8 col-12">
       <h3 class="text-center">Current Bookings</h3>
       <div class="row booking-info justify-content-center">
         <% @bookings.each do |booking| %>
         <div class="col-12 col-lg-4">
-          <div class="booking-card ml-5 mx-auto">
+          <div class="booking-card mx-auto">
             <%= link_to dress_path(booking.dress) do %>
               <% if booking.dress.photos.attached? %>
                 <%= cl_image_tag(booking.dress.photos.first.key) %>
@@ -28,30 +29,47 @@
           </div>
         </div>
         <% end %>
+        <%# booking cards awaiting confirmation - owner %>
+        <div class="container">
+          <% if @booked %>
+            <h3 class="text-center">Booking Requests</h3>
+            <div class="row booking-info justify-content-center">
+              <% @booked.each do |booking| %>
+              <div class="col-12 col-lg-4">
+                <div class="booking-card booked mx-auto">
+                  <%= link_to dress_path(booking.dress) do %>
+                    <% if booking.dress.photos.attached? %>
+                      <%= cl_image_tag(booking.dress.photos.first.key) %>
+                    <% elsif booking.dress.dress_url.present? %>
+                      <%= image_tag(booking.dress.dress_url) %>
+                    <% else %>
+                      <%= image_tag("bridal_gown_silhouette.png") %>
+                    <% end %>
+                  <% end %>
+                  <div class="d-flex justify-content-center confirm-button">
+                    <% if booking.status == "pending" %>
+                      <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                      <%= f.submit 'Accept', class: 'btn btn-outline-secondary mr-2' %>
+                    <% end %>
+                    <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                      <%= f.submit 'Reject', class: 'btn btn-outline-secondary' %>
+                    <% end %>
+                    <% elsif booking.status == "rejected" %>
+                      <p>Rejected</p>
+                    <% else %>
+                      <p>Accepted</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
   <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
 </div>
-
-
-<%
-=begin %>
-            <div class="d-flex justify-content-center confirm-button">
-              <% if booking.status == "pending" %>
-                <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                <%= f.submit 'Accept', class: 'btn btn-outline-secondary mr-2' %>
-              <% end %>
-              <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                <%= f.submit 'Reject', class: 'btn btn-outline-secondary' %>
-              <% end %>
-              <% elsif booking.status == "rejected" %>
-                <p>Rejected</p>
-              <% else %>
-                <p>Accepted</p>
-              <% end %>
-            </div>
-<%
-=end %>
