@@ -13,8 +13,8 @@
         <div class="d-flex">
           <div class="form-inline">
             <%= form_tag dresses_path, method: :get do %>
-            <%= text_field_tag :search,
-                params[:search],
+            <%= text_field_tag :query,
+                params[:query],
                 class: "search-bar form-control",
                 placeholder: "Search All Dresses"
               %>
