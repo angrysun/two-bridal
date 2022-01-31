@@ -1,6 +1,10 @@
 <div class="container">
   <h1 class="my-3">Your Favorites</h1>
-
+  <% if @fav_dresses.empty? %>
+    <h3 class="mb-5">No Favorites Yet!
+      <%= link_to "Find Some Favorites", dresses_path, class: 'card-link' %>
+    </h3>
+  <% end %>
   <div class="row justify-content-center">
     <% @fav_dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
