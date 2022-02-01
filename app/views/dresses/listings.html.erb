@@ -20,7 +20,7 @@
           <%= image_tag("bridal_gown_silhouette.png") %>
         <% end %>
       <% end %>
-      <p><%= dress.description %></p>
+      <p><%= dress.description.truncate(30, omission: " ...") %></p>
       <p>$<%= dress.price_per_day %> per day</p>
       <div class="edit-dress">
         <%= link_to "", dress_path(dress), method: :delete, id: "delete-link", class: "hidden" %>
