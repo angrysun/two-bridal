@@ -8,20 +8,12 @@ class DressesController < ApplicationController
     else
       @dresses = Dress.all
     end
-
-    # @markers = @dresses.geocoded.map do |dress|
-    #   {
-    #     lat: dress.latitude,
-    #     lng: dress.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { dress: dress }),
-    #     image_url: helpers.asset_url('wedding_dress_dark.png')
-    #   }
-    # end
   end
 
   def show
     authorize @dress
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new
