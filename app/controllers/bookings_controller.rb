@@ -49,10 +49,6 @@ class BookingsController < ApplicationController
       dress: { user: current_user }
     )
     authorize @bookings
-
-    respond_to do |format|
-      format.js
-    end
   end
 
   private
