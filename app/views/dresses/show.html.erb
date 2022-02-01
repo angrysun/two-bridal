@@ -1,7 +1,5 @@
 <div class="container">
-
   <%= render 'shared/carousel' %>
-
   <div class="m-3">
     <h3><%= @dress.style %> style dress designed by <%= @dress.brand %></h3>
     <p><%= @dress.description %></p>
@@ -10,26 +8,24 @@
     <p>Price Per Day: $<%= @dress.price_per_day %>
     <%= link_to 'Book Dress', new_dress_booking_path(@dress), class: 'btn btn-dark  float-right' %>
   </div>
-
-    <h3 class="m-3 my-5">This Dress's Reviews
-      <button type="button" class="btn btn-outline-secondary ml-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Leave a Review</button>
-    </h3>
-      <ul class="list-unstyled pb-5">
-        <% @dress.reviews.each do |review| %>
-          <li class="mb-3 shadow-sm p-2"><%= '🤍' * review.rating %> - <%= current_user.first_name %>
-          <p class="p-2"><%= review.comment %></p></li>
-        <% end %>
-      </ul>
-
-
+  <h3 class="m-3 my-5">This Dress's Reviews
+    <button type="button" class="btn btn-outline-secondary ml-3" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
+  </h3>
+  <ul class="list-unstyled pb-5">
+    <% @dress.reviews.each do |review| %>
+      <li class="mb-3 shadow-sm p-2"><%= '🤍' * review.rating %> - <%= current_user.first_name %>
+      <p class="p-2"><%= review.comment %></p></li>
+    <% end %>
+  </ul>
   <%= link_to 'Back', :back, class: "btn btn-outline-secondary mb-5 mx-1" %>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%# modal %>
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Review</h5>
+        <h5 class="modal-title" id="reviewModalLabel">New Review</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       redirect_to profile_path
-      # Changed path from "bookings_path to booking_path."
     else
       render :new
     end
@@ -29,17 +28,14 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.status = booking_params[:status]
     @booking.update(booking_params)
-    # had to pass an argument of booking_params to make it work for me
     redirect_to profile_path
   end
 
   def destroy
     authorize @booking
     flash[:remove] = "\"#{@booking.dress.brand} dress\" removed from bookings"
-    # flash message to notify dress has been removed from bookings
     @booking.destroy
     redirect_to bookings_path
-    # Changed path back to "bookings path""
   end
 
   def profile

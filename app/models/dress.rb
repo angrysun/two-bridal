@@ -2,8 +2,6 @@ class Dress < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
-  geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_location?
 
   validates :style, inclusion: { in: %w[Princess Mermaid A-Line Ballgown Empire
                                         Column Hi-Lo Trumpet Asymmetrical Bateau Mini] }
