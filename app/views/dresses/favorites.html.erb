@@ -19,9 +19,9 @@
       <% end %>
       <span class="favorite">
       <% if current_user.favorited?(dress) %>
-        <%= link_to "", favorite_path(dress), class: "fa fa-heart pink" %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart pink", id: "favorite-button-#{dress.id}", remote: true %>
       <% else %>
-        <%= link_to "", favorite_path(dress), class: "fa fa-heart" %>
+        <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
       <% end %>
       </span>
       <p><%= dress.description %></p>
