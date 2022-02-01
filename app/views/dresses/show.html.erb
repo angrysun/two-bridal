@@ -35,11 +35,11 @@
         </button>
       </div>
       <div class="modal-body">
-      <%= simple_form_for [ @dress, @review ] do |f| %>
-        <%= f.input :rating, collection: 1..5 %>
-        <%= f.input :comment %>
-        <%= f.submit class: 'btn btn-success mb-5'%>
-      <% end %>
+        <%= simple_form_for [ @dress, @review ] do |f| %>
+          <%= f.input :rating, collection: 1..5 %>
+          <%= f.input :comment %>
+          <%= f.submit class: 'btn btn-success mb-5'%>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
