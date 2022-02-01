@@ -72,6 +72,10 @@ class DressesController < ApplicationController
     @dresses = policy_scope(Dress).order(created_at: :desc)
     @fav_dresses = current_user.all_favorited
     authorize @dresses
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def listings
