@@ -17,14 +17,7 @@
     <% @dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
       <%= link_to dress_path(dress) do %>
-        <% if dress.photos.attached? %>
-          <%= cl_image_tag(dress.photos.first.key) %>
-        <% elsif dress.dress_url.present? %>
-          <%= image_tag(dress.dress_url) %>
-        <% else %>
-          <%= image_tag("bridal_gown_silhouette.png") %>
-        <% end %>
-        <%# <%= render 'shared/dress_images', dress: @dress %>
+        <%= render 'dress_images', dress: dress %>
       <% end %>
       <span class="favorite">
         <% if dress.favorited_by?(current_user) %>
