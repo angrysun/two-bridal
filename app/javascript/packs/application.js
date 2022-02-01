@@ -26,8 +26,8 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initSweetalert } from "../plugins/init_sweetalert";
 import { Swiper }  from "../plugins/swiper";
 
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel";
 // initFlatpickr();
 
 // Internal imports, e.g:
@@ -60,21 +60,21 @@ document.addEventListener("turbolinks:load", () => {
     }
   );
 
-  $(".owl-carousel").owlCarousel({
-    loop: true,
-    autoWidth: true,
-    center: true,
-    autoplay: true,
-    autoplayHoverPause: true,
-    items: 1,
-    touchDrag: true,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  });
+  // $(".owl-carousel").owlCarousel({
+  //   loop: true,
+  //   autoWidth: true,
+  //   center: true,
+  //   autoplay: true,
+  //   autoplayHoverPause: true,
+  //   items: 1,
+  //   touchDrag: true,
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //     },
+  //     1000: {
+  //       items: 3,
+  //     },
+  //   },
+  // });
 });
