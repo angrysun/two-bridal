@@ -74,7 +74,6 @@ class DressesController < ApplicationController
     authorize @dresses
 
     respond_to do |format|
-      format.js
       format.html
     end
   end
@@ -89,7 +88,7 @@ class DressesController < ApplicationController
 
   def dress_params
     params.require(:dress).permit(:brand, :color, :size, :style, :description,
-                                  :price_per_day, :location, :longitude, :latitude, photos: [])
+                                  :price_per_day, :longitude, :latitude, photos: [])
   end
 
   def set_dress

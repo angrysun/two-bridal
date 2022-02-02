@@ -4,6 +4,11 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = Booking.where(user: current_user)
+    @booked = Booking.joins(:dress).where(
+      dress: { user: current_user }
+    )
+    authorize @bookings
   end
 
   def new

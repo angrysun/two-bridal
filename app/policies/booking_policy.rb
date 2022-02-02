@@ -23,4 +23,8 @@ class BookingPolicy < ApplicationPolicy
   def profile?
     true
   end
+
+  def index?
+    true
+  end
 end
