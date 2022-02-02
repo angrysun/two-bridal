@@ -1,38 +1,54 @@
 <div class="container">
-
-  <h1 class="m-2">Your bookings</h1>
-  <div class="row justify-content-center">
-    <% @bookings.each do |booking| %>
-      <% if booking.user == current_user %>
-       <%# this if checks that the user is the person booking the dress %>
-        <div class="dress-card text-center mb-3">
+  <% if @bookings.empty? %>
+    <h3 class="text-center mb-5 p-5">No bookings yet!
+      <%= link_to "Browse Dresses", dresses_path, class: 'card-link' %>
+    </h3>
+  <% else %>
+  <%# User's Bookings %>
+    <h1 class="m-2 text-center">Your Bookings</h1>
+    <div class="row justify-content-center">
+      <% @bookings.each do |booking| %>
+        <div class="booking-card text-center mb-3">
+          <%= link_to dress_path(booking.dress) do %>
+            <%= render 'dress_images', dress: booking.dress %>
+          <% end %>
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
-          <p>Booker:<%= booking.user.last_name%></p>
-          <p>$<%= booking.dress.price_per_day %> per day</p>
-          <p><%= booking.starting_date %></p>
-          <p><%= booking.ending_date %></p>
+          <p>Total: $<%= booking.total_price %></p>
+          <p>Rental Period:
+            <%= booking.starting_date %>
+            <%= booking.ending_date %>
+          </p>
         </div>
       <% end %>
-    <% end %>
-  </div>
-
-  <h1 class="m-2">Your booked listings</h1>
-  <div class="row justify-content-center">
-    <% @bookings.each do |booking| %>
-      <% if booking.dress.user == current_user %>
-      <%# this if checks that the user is the owner of the dress %>
-        <div class="dress-card text-center mb-3">
+    </div>
+  <% end %>
+  <%# User's Booked Listings %>
+  <% if @booked.empty? %>
+    <h3 class="text-center mb-5 p-5">No booked listings yet!
+      <%= link_to "See My Listings", listings_path, class: 'card-link' %>
+    </h3>
+  <% else %>
+    <h1 class="m-2 text-center">Your Booked Listings</h1>
+    <div class="row justify-content-center">
+      <% @booked.each do |booking| %>
+        <div class="booking-card text-center mb-3">
+          <%= link_to dress_path(booking.dress) do %>
+            <%= render 'dress_images', dress: booking.dress %>
+          <% end %>
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
-          <p>Booker:<%= booking.user.last_name%></p>
-          <p>$<%= booking.dress.price_per_day %> per day</p>
-          <%# neeed to provide price based on days rented %>
-          <p><%= booking.starting_date %></p>
-          <p><%= booking.ending_date %></p>
+          <p>Client:
+            <%= booking.user.first_name%>
+            <%= booking.user.last_name%>
+          </p>
+          <p>Total: $<%= booking.total_price %></p>
+          <p>Rental Period:
+            <%= booking.starting_date %>
+            <%= booking.ending_date %>
+          </p>
         </div>
       <% end %>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
 </div>
