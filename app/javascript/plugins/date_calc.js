@@ -16,7 +16,6 @@ const initDate_calc = () => {
       // conversion to Date and milliseconds
       let days = Math.round((mili_second - mili_first) / (1000 * 60 * 60 * 24));
       // difference_ms = mili_second - mili_first / one_day=1000*60*60*24
-
       if (Number.isInteger(days)) {
         document.getElementById("price").innerText = (days + 1) * price_regex;
         document.getElementById("total_price").value = (days + 1) * price_regex;
