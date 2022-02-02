@@ -23,9 +23,9 @@
       <p><%= dress.description.truncate(30, omission: " ...") %></p>
       <p>$<%= dress.price_per_day %> per day</p>
       <div class="edit-dress">
-        <%= link_to "", dress_path(dress), method: :delete, id: "delete-link", class: "hidden" %>
+        <%= link_to "", dress_path(dress), method: :delete, class: "hidden delete-link" %>
         <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-outline-secondary mb-5 mx-1" %>
-        <button id="sweet-alert-delete", class="btn btn-outline-secondary mb-5 mx-1 float-right">Delete</button>
+        <button class="sweet-alert-delete btn btn-outline-secondary mb-5 mx-1 float-right">Delete</button>
       </div>
     </div>
     <% end %>
