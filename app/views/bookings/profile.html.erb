@@ -31,6 +31,7 @@
             <% end %>
               <p>Booked from <%= booking.starting_date %> until <%= booking.ending_date %></p>
               <p>Status: <%= booking.status.capitalize %></p>
+              <p>Order Total: $<%= booking.total_price %></p>
           </div>
         </div>
         <% end %>
