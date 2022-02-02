@@ -74,7 +74,7 @@ class DressesController < ApplicationController
     authorize @dresses
 
     respond_to do |format|
-      format.js
+      format.html
     end
   end
 
