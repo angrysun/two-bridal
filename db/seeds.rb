@@ -10,7 +10,6 @@ User.create(email: 'cae@gmail.com', password: '1234567', first_name: 'Camille', 
 User.create(email: 'fun@yahoo.co.jp', password: 'qwerty09', first_name: 'Mao', last_name: 'Hasegawa')
 puts 'Done'
 
-
 puts 'Deleting all dresses'
 Dress.destroy_all
 puts "Done"
@@ -22,8 +21,7 @@ Dress.create(
   style: 'Mermaid',
   description: 'Magestic and feminine.',
   price_per_day: 500,
-  user_id: User.first.id,
-  location: 'Shinjuku'
+  user_id: User.first.id
 )
 Dress.create(
   brand: 'Gucci',
@@ -33,7 +31,6 @@ Dress.create(
   description: 'Elegant with pearl detailing.',
   price_per_day: 515,
   user_id: User.first.id,
-  location: 'Nakameguro',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/gucci_princess_foofpj.jpg'
 )
 Dress.create(
@@ -44,7 +41,6 @@ Dress.create(
   description: 'Classic. A statement piece. Looks great in photos.',
   price_per_day: 228,
   user_id: User.first.id,
-  location: 'Shibuya',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/armani_cream_cgib1e.jpg'
 )
 Dress.create(
@@ -55,7 +51,6 @@ Dress.create(
   description: 'Very comfortable and elegant. Small stain on the hem but barely noticable',
   price_per_day: 300,
   user_id: User.first.id,
-  location: 'Akihabara',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/gucci_white_empire_lpfkad.jpg'
 )
 Dress.create(
@@ -66,7 +61,6 @@ Dress.create(
   description: 'Poofy and feminine. Big impact!',
   price_per_day: 138,
   user_id: User.first.id,
-  location: 'Shinjuku Sanchome',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vera_wang_baby_blue_x3uirc.jpg'
 )
 Dress.create(
@@ -77,7 +71,6 @@ Dress.create(
   description: 'So glamorous and sexy. For a bride who wants to show off her figure!',
   price_per_day: 150,
   user_id: User.first.id,
-  location: 'Ebisu',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/vera_wang_gold_y9aeig.jpg'
 )
 Dress.create(
@@ -88,7 +81,6 @@ Dress.create(
   description: 'Girly and playful, great silhouette',
   price_per_day: 150,
   user_id: User.first.id,
-  location: 'Tokyo Tower',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/phillipa_lepley_silver_v4as3y.jpg'
 )
 Dress.create(
@@ -99,7 +91,6 @@ Dress.create(
   description: 'Modern twist on a classic dress. Simply gorgeous.',
   price_per_day: 175,
   user_id: User.first.id,
-  location: 'Meguro',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/Jenny_Packham_champagne_inh3tz.jpg'
 )
 Dress.create(
@@ -110,7 +101,6 @@ Dress.create(
   description: 'Adorable yet sophisticated. An extremely pale pink, unique dress.',
   price_per_day: 125,
   user_id: User.first.id,
-  location: 'Daikanyama',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/Hermione_baby_pink_a-line_laboem.jpg'
 )
 Dress.create(
@@ -121,7 +111,6 @@ Dress.create(
   description: 'Very simple and understated. Goes well with diamonds.',
   price_per_day: 100,
   user_id: User.first.id,
-  location: 'Yutenji',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vivienne_westwood_gold_sn7vck.jpg'
 )
 Dress.create(
@@ -132,7 +121,6 @@ Dress.create(
   description: 'Urban chic wedding dress, great for city weddings!',
   price_per_day: 250,
   user_id: User.first.id,
-  location: 'Harajuku',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vera_wang_gold_a-line_bybias.jpg'
 )
 Dress.create(
@@ -143,7 +131,6 @@ Dress.create(
   description: 'Small and elegant dress - for a petite bride.',
   price_per_day: 115,
   user_id: User.first.id,
-  location: 'Omotesando',
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/tony_ward_white_mermaid_rdjsfd.jpg'
 )
 puts 'Done!'

@@ -24,10 +24,10 @@ import { initMapbox } from "../plugins/init_mapbox";
 import { initDate_calc } from "../plugins/date_calc";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initSweetalert } from "../plugins/init_sweetalert";
-import { Swiper }  from "../plugins/swiper";
+import { Swiper } from "../plugins/swiper";
 
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel";
 // initFlatpickr();
 
 // Internal imports, e.g:
@@ -42,7 +42,7 @@ document.addEventListener("turbolinks:load", () => {
   initAutocomplete();
 
   initSweetalert(
-    "#sweet-alert-delete",
+    ".sweet-alert-delete",
     {
       title: "Are you sure?",
       text: "This action cannot be reversed",
@@ -54,27 +54,27 @@ document.addEventListener("turbolinks:load", () => {
     },
     (value) => {
       if (value) {
-        const link = document.querySelector("#delete-link");
+        const link = document.querySelector(".delete-link");
         link.click();
       }
     }
   );
 
-  $(".owl-carousel").owlCarousel({
-    loop: true,
-    autoWidth: true,
-    center: true,
-    autoplay: true,
-    autoplayHoverPause: true,
-    items: 1,
-    touchDrag: true,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  });
+  // $(".owl-carousel").owlCarousel({
+  //   loop: true,
+  //   autoWidth: true,
+  //   center: true,
+  //   autoplay: true,
+  //   autoplayHoverPause: true,
+  //   items: 1,
+  //   touchDrag: true,
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //     },
+  //     1000: {
+  //       items: 3,
+  //     },
+  //   },
+  // });
 });
