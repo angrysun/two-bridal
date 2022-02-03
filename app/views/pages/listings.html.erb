@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
       <p><%= dress.description %></p>
-      <p>$<%= dress.price_per_day %> per day</p>
+      <p>¥<%= dress.price_per_day %> per day</p>
       <div class="edit-dress">
         <%= link_to "Delete", dress_path(dress), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-secondary mb-5 mx-1" %>
         <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-outline-secondary mb-5 mx-1" %>
