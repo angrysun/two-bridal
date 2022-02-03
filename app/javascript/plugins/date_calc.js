@@ -16,12 +16,15 @@ const initDate_calc = () => {
       // conversion to Date and milliseconds
       let days = Math.round((mili_second - mili_first) / (1000 * 60 * 60 * 24));
       // difference_ms = mili_second - mili_first / one_day=1000*60*60*24
+      let new_price_regex = price_regex.join("");
       if (Number.isInteger(days)) {
-        document.getElementById("price").innerText = (days + 1) * price_regex;
-        document.getElementById("total_price").value = (days + 1) * price_regex;
+        document.getElementById("price").innerText =
+          (days + 1) * new_price_regex;
+        document.getElementById("total_price").value =
+          (days + 1) * new_price_regex;
       } else {
-        document.getElementById("price").innerText = price_regex;
-        document.getElementById("total_price").value = price_regex;
+        document.getElementById("price").innerText = new_price_regex;
+        document.getElementById("total_price").value = new_price_regex;
       }
       // If only one date(ex. start date only) was selected or the same day, it would return and show NaN(Not-A-Number)
     });

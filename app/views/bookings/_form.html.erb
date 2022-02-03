@@ -5,7 +5,7 @@
       <%= f.input :post_code, as: :integer, input_html: { maxlength: 7 }, placeholder: 'ex.1600003', hint: 'No special characters.'  %>
       <%= f.input :total_price, as: :integer, as: :hidden, :input_html => { :id => "total_price"} %>
       <%= f.submit class: 'btn btn-dark float-right'%>
-      <p id= day_price>Price per day: $<%= @dress.price_per_day %></p>
-      <div style="display:flex;"><p>Total: $</p><p id="price">0</p>
+      <p id= day_price>Price per day: <%= number_to_currency(@dress.price_per_day, {unit: '¥', precision: 0}) %></p>
+      <div style="display:flex;"><p>Total:¥</p><p id="price">0</p>
       </div>
     <% end %>
