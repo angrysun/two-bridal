@@ -14,7 +14,7 @@
           <% end %>
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
-          <p>Total: $<%= booking.total_price %></p>
+          <p>Total: <%= number_to_currency(booking.total_price, {unit: '¥', precision: 0}) %></p>
           <p>Rental Period:
             <%= booking.starting_date %>
             <%= booking.ending_date %>
@@ -42,7 +42,7 @@
             <%= booking.user.first_name%>
             <%= booking.user.last_name%>
           </p>
-          <p>Total: $<%= booking.total_price %></p>
+          <p>Total: <%= number_to_currency(booking.total_price, {unit: '¥', precision: 0}) %></p>
           <p>Rental Period:
             <%= booking.starting_date %>
             <%= booking.ending_date %>

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :dresses, dependent: :destroy
   has_many :bookings_as_owner, through: :dresses, source: :bookings
-  has_many :reviews, through: :dresses
+  has_many :reviews
   has_many :bookings
   has_one_attached :avatar
   # Need to double check with Teacher if these BOOKINGS associations are OK.

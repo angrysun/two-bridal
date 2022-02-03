@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
       <p><%= dress.description.truncate(30, omission: " ...") %></p>
-      <p>$<%= dress.price_per_day %> per day</p>
+      <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
       <div class="edit-dress">
         <%= link_to "", dress_path(dress), method: :delete, class: "hidden delete-link" %>
         <%= link_to "Edit", edit_dress_path(dress), class: "btn btn-outline-secondary mb-5 mx-1" %>

@@ -1,4 +1,4 @@
 <div class="mb-3 shadow-sm p-2 m-3">
-  <p><%= '🤍' * review.rating %> - <%= current_user.first_name %></p>
+  <p><%= '🤍' * review.rating %> - <%= review.user.first_name %></p>
   <p id="review-<%= review.id %>" class="p-2"><%= review.comment %></p></li>
 </div>

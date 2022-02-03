@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     authorize @review
     @dress = Dress.find(params[:dress_id])
+    @review.user = current_user
     @review.dress = @dress
 
     respond_to do |format|
@@ -26,6 +27,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:comment, :rating)
+    params.require(:review).permit(:comment, :rating, :user_id)
   end
 end
