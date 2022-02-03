@@ -20,7 +20,7 @@ Dress.create(
   size: 2,
   style: 'Mermaid',
   description: 'Magestic and feminine.',
-  price_per_day: 500,
+  price_per_day: 50_000,
   user_id: User.first.id
 )
 Dress.create(
@@ -29,7 +29,7 @@ Dress.create(
   size: 2,
   style: 'Princess',
   description: 'Elegant with pearl detailing.',
-  price_per_day: 515,
+  price_per_day: 51_500,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/gucci_princess_foofpj.jpg'
 )
@@ -39,7 +39,7 @@ Dress.create(
   size: 4,
   style: 'Trumpet',
   description: 'Classic. A statement piece. Looks great in photos.',
-  price_per_day: 228,
+  price_per_day: 22_800,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/armani_cream_cgib1e.jpg'
 )
@@ -49,7 +49,7 @@ Dress.create(
   size: 6,
   style: 'Empire',
   description: 'Very comfortable and elegant. Small stain on the hem but barely noticable',
-  price_per_day: 300,
+  price_per_day: 30_000,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/gucci_white_empire_lpfkad.jpg'
 )
@@ -59,7 +59,7 @@ Dress.create(
   size: 10,
   style: 'Ballgown',
   description: 'Poofy and feminine. Big impact!',
-  price_per_day: 138,
+  price_per_day: 13_800,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vera_wang_baby_blue_x3uirc.jpg'
 )
@@ -69,7 +69,7 @@ Dress.create(
   size: 8,
   style: 'A-Line',
   description: 'So glamorous and sexy. For a bride who wants to show off her figure!',
-  price_per_day: 150,
+  price_per_day: 15_000,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/vera_wang_gold_y9aeig.jpg'
 )
@@ -79,7 +79,7 @@ Dress.create(
   size: 27,
   style: 'Princess',
   description: 'Girly and playful, great silhouette',
-  price_per_day: 150,
+  price_per_day: 15_000,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/phillipa_lepley_silver_v4as3y.jpg'
 )
@@ -89,7 +89,7 @@ Dress.create(
   size: 12,
   style: 'Bateau',
   description: 'Modern twist on a classic dress. Simply gorgeous.',
-  price_per_day: 175,
+  price_per_day: 17_500,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/Jenny_Packham_champagne_inh3tz.jpg'
 )
@@ -99,7 +99,7 @@ Dress.create(
   size: 8,
   style: 'A-Line',
   description: 'Adorable yet sophisticated. An extremely pale pink, unique dress.',
-  price_per_day: 125,
+  price_per_day: 12_500,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156853/Hermione_baby_pink_a-line_laboem.jpg'
 )
@@ -109,7 +109,7 @@ Dress.create(
   size: 10,
   style: 'Column',
   description: 'Very simple and understated. Goes well with diamonds.',
-  price_per_day: 100,
+  price_per_day: 10_000,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vivienne_westwood_gold_sn7vck.jpg'
 )
@@ -119,7 +119,7 @@ Dress.create(
   size: 8,
   style: 'A-Line',
   description: 'Urban chic wedding dress, great for city weddings!',
-  price_per_day: 250,
+  price_per_day: 25_000,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156855/vera_wang_gold_a-line_bybias.jpg'
 )
@@ -129,7 +129,7 @@ Dress.create(
   size: 23,
   style: 'Mermaid',
   description: 'Small and elegant dress - for a petite bride.',
-  price_per_day: 115,
+  price_per_day: 11_500,
   user_id: User.first.id,
   dress_url: 'https://res.cloudinary.com/dailyusername/image/upload/v1643156854/tony_ward_white_mermaid_rdjsfd.jpg'
 )
