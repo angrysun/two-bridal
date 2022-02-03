@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'dresses/listings', to: 'dresses#listings', as: 'listings'
   resources :dresses do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: :create
   end
   resources :bookings, only: %i[destroy index update]
   resources :reviews, only: [:destroy]
