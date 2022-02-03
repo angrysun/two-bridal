@@ -13,7 +13,7 @@
   </h3>
   <ul class="list-unstyled pb-5">
     <% @dress.reviews.each do |review| %>
-      <li class="mb-3 shadow-sm p-2"><%= '🤍' * review.rating %> - <%= current_user.first_name %>
+      <li class="mb-3 shadow-sm p-2"><%= '🤍' * review.rating %> - <%= review.user.first_name %>
       <p class="p-2"><%= review.comment %></p></li>
     <% end %>
   </ul>
