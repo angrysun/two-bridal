@@ -11,10 +11,15 @@ class ReviewsController < ApplicationController
     authorize @review
     @dress = Dress.find(params[:dress_id])
     @review.dress = @dress
-    if @review.save
-      redirect_to dress_path(@dress, anchor: "review-#{@review.id}")
-    else
-      render 'dresses/show'
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to dress_path(@dress) }
+        format.json
+      else
+        format.html { render 'dresses/show' }
+        format.json
+      end
     end
   end
 
