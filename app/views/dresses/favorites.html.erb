@@ -19,7 +19,7 @@
       <% end %>
       </span>
       <p><%= dress.description.truncate(30, omission: " ...") %></p>
-      <p>$<%= dress.price_per_day %> per day</p>
+      <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
     </div>
     <% end %>
   </div>
