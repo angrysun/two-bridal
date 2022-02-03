@@ -1,22 +1,24 @@
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <% if @dress.photos.attached? %>
-      <% @dress.photos.each do |photo| %>
-        <div class="swiper-slide dress-card text-center mb-3">
-          <%= cl_image_tag photo.key %>
+<div class="swiper-container-rtl">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% if @dress.photos.attached? %>
+        <% @dress.photos.each do |photo| %>
+          <div class="swiper-slide carousel-dress-card text-center mb-3">
+            <%= cl_image_tag photo.key %>
+          </div>
+        <% end %>
+      <% elsif @dress.dress_url.present? %>
+        <div class="swiper-slide carousel-dress-card text-center mb-3">
+          <%= image_tag(@dress.dress_url) %>
+        </div>
+      <% else %>
+        <div class="swiper-slide carousel-dress-card text-center mb-3">
+          <%= image_tag("bridal_gown_silhouette.png") %>
         </div>
       <% end %>
-    <% elsif @dress.dress_url.present? %>
-      <div class="swiper-slide dress-card text-center mb-3">
-        <%= image_tag(@dress.dress_url) %>
-      </div>
-    <% else %>
-      <div class="swiper-slide dress-card text-center mb-3">
-        <%= image_tag("bridal_gown_silhouette.png") %>
-      </div>
-    <% end %>
+    </div>
+    <div class="swiper-button-next swiper-button-black"></div>
+    <div class="swiper-button-prev swiper-button-black"></div>
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
 </div>

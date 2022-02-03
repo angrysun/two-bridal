@@ -61,3 +61,18 @@
   min-height: 624px;
   margin-bottom: 24px;
 }
+
+.carousel-dress-card {
+  width: 300px;
+  margin-left: 24px;
+  font-size: 1rem;
+
+  img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    margin: 8px 0px 16px 0px;
+    // top margin is 8px, right margin is 0px, bottom is 16px, left is 0px
+    border-radius: 8px;
+  }
+}
