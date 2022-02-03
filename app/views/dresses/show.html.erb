@@ -8,38 +8,22 @@
     <p>Price Per Day: $<%= @dress.price_per_day %>
     <%= link_to 'Book Dress', new_dress_booking_path(@dress), class: 'btn btn-dark  float-right' %>
   </div>
-  <h3 class="m-3 my-5">This Dress's Reviews
-    <button type="button" class="btn btn-outline-secondary ml-3" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
-  </h3>
-  <ul class="list-unstyled pb-5">
-    <% @dress.reviews.each do |review| %>
-      <li class="mb-3 shadow-sm p-2"><%= '🤍' * review.rating %> - <%= current_user.first_name %>
-      <p class="p-2"><%= review.comment %></p></li>
-    <% end %>
-  </ul>
-  <%= link_to 'Back', :back, class: "btn btn-outline-secondary mb-5 mx-1" %>
-</div>
+  <h3 class="m-3 my-5">This Dress's Reviews</h3>
 
-<%# modal %>
-<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reviewModalLabel">New Review</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [ @dress, @review ] do |f| %>
-          <%= f.input :rating, collection: 1..5 %>
-          <%= f.input :comment %>
-          <%= f.submit class: 'btn btn-success mb-5'%>
+  <div data-controller="insert-in-list" class="reviews mx-auto">
+    <div id="reviews" data-insert-in-list-target="items">
+      <% if @dress.reviews.blank? %>
+        Be the first to leave a review for this dress!
+      <% else %>
+        <% @dress.reviews.each do |review| %>
+          <%= render review %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+      <% end %>
     </div>
+
+    <h3 class="m-3 my-5">Leave a Review</h3>
+    <%= render 'reviews/form', dress: @dress, review: @review %>
   </div>
+
+  <%= link_to 'Back', :back, class: "btn btn-outline-secondary mb-5 mx-1 mt-5" %>
 </div>
