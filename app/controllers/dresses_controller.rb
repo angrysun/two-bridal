@@ -2,6 +2,7 @@ class DressesController < ApplicationController
   before_action :set_dress, only: %i[show edit update destroy favorite]
 
   def index
+    @query = params[:query]
     @dresses = policy_scope(Dress).order(created_at: :desc)
     if params[:query].present?
       @dresses = Dress.search_dresses(params[:query])
