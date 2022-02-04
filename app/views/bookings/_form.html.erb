@@ -3,7 +3,7 @@
       <%= f.input :ending_date, as: :string, required: false, input_html: {class: "datepicker", id: "end_date"} %>
       <%= f.input :address, as: :string, placeholder: 'Tokyo, Shinjuku, Yanagicho, 2-2-10, La Reina, #301' %>
       <%= f.input :post_code, as: :integer, input_html: { maxlength: 7 }, placeholder: 'ex.1600003', hint: 'No special characters.'  %>
-      <%= f.input :total_price, as: :integer, as: :hidden, :input_html => { :id => "total_price"}, error: 'Ending date cannot be before Starting date' %>
+      <%= f.input :total_price, as: :integer, as: :hidden, :input_html => { :id => "total_price"}%>
       <%= f.submit class: 'btn btn-dark float-right'%>
       <p id= day_price>Price per day: <%= number_to_currency(@dress.price_per_day, {unit: '¥', precision: 0}) %></p>
       <div style="display:flex;"><p>Total:¥</p><p id="price">0</p>
