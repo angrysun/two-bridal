@@ -21,7 +21,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.dress = @dress
     @booking.user = current_user
-    @booking.total_price = @dress.price_per_day * (@booking.ending_date - @booking.starting_date)
+    # @booking.total_price = @dress.price_per_day * (@booking.ending_date - @booking.starting_date)
+    # booking total is already permitted in the simple_form input field which is hidden, also the input_field calculation.js counts all the days inlcuding the start date.
     authorize @booking
     if @booking.save
       redirect_to profile_path
