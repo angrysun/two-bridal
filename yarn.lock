@@ -7170,10 +7170,10 @@ sweetalert@^2.1.2:
     es6-object-assign "^1.1.0"
     promise-polyfill "^6.0.2"
 
-swiper@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.0.0.tgz#62682a72148db5c312152b05ee796e5eaa205a63"
-  integrity sha512-ue0ybmUIQXZccKo7KutJ2dKM1RgFt7JgJHM7F6adr0JAbG7dJUnTTSQ5l/2AS8/mwv3t4sPCL9lFh9pUAtq1iw==
+swiper@^8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.0.3.tgz#7933a76e9720af0b7283f555d5b20dc566c74987"
+  integrity sha512-mpw7v/Lkh48LQUxtJuFD+3Lls8LViNi3j1fbk45fNo9DXZxXK/e7NMixxS27OxvC5wx+5H3bet1O2pdjk7akBA==
   dependencies:
     dom7 "^4.0.4"
     ssr-window "^4.0.2"
