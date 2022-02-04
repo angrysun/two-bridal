@@ -6,6 +6,7 @@
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
+
 import "channels";
 
 Rails.start();
@@ -24,7 +25,7 @@ import { initMapbox } from "../plugins/init_mapbox";
 import { initDate_calc } from "../plugins/date_calc";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initSweetalert } from "../plugins/init_sweetalert";
-import { Swiper } from "../plugins/swiper";
+import { initSwiper } from "../plugins/swiper";
 
 // import "owl.carousel/dist/assets/owl.carousel.css";
 // import "owl.carousel";
@@ -36,6 +37,7 @@ import { Swiper } from "../plugins/swiper";
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initSwiper();
   initFlatpickr();
   initDate_calc();
   initMapbox();
