@@ -1,11 +1,11 @@
 <%= simple_form_for([ dress, review ],
                     data: { insert_in_list_target: 'form',
                               action: 'submit->insert-in-list#send'}) do |f| %>
-  <div class="star-rating">
+  <div class="star-rating float-left">
     <% 5.times do |i| %>
       <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
     <% end %>
   </div>
-  <%= f.input :comment, as: :text %>
+  <%= f.input :comment, as: :text, class: 'my-3', label: false %>
   <%= f.button :submit, class: 'btn btn-outline-secondary mb-3 float-right'%>
 <% end %>
