@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.dress = @dress
     @booking.user = current_user
+    @booking.total_price = @dress.price_per_day * (@booking.ending_date - @booking.starting_date)
     authorize @booking
     if @booking.save
       redirect_to profile_path

@@ -55,17 +55,17 @@
                   <% end %>
                     <p>Booked from <%= booking.starting_date %> until <%= booking.ending_date %></p>
                     <p>Order Total: <%= number_to_currency(booking.total_price, {unit: '¥', precision: 0}) %></p>
-                  <div class="d-flex justify-content-center confirm-button">
+                    <p>Status: <%= booking.status.capitalize %></p>
+                  <div class="d-flex justify-content-center confirm-button mt-3">
                     <% if booking.status == "pending" %>
-                      <p>Status: <%= booking.status.capitalize %></p>
                       <%= simple_form_for booking do |f| %>
-                      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                      <%= f.submit 'Accept', class: 'btn btn-outline-secondary mr-2' %>
-                    <% end %>
-                    <%= simple_form_for booking do |f| %>
-                      <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                      <%= f.submit 'Reject', class: 'btn btn-outline-secondary' %>
-                    <% end %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                        <%= f.submit 'Accept', class: 'btn btn-outline-secondary mr-2' %>
+                      <% end %>
+                      <%= simple_form_for booking do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                        <%= f.submit 'Reject', class: 'btn btn-outline-secondary' %>
+                      <% end %>
                     <% elsif booking.status == "rejected" %>
                       <p>Status: Rejected</p>
                     <% else %>

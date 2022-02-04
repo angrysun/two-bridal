@@ -15,7 +15,7 @@
   <div data-controller="insert-in-list" class="reviews mx-auto">
     <div id="reviews" data-insert-in-list-target="items">
       <% if @dress.reviews.blank? %>
-        <p class="m-3">Be the first to leave a review for this dress!</p>
+        <p class="m-3" id=" first-review">Be the first to leave a review for this dress!</p>
       <% else %>
         <% @dress.reviews.each do |review| %>
           <%= render review %>
