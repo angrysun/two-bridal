@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ['items', 'form'];
+  static targets = ['items', 'form', 'header'];
 
   send(event) {
     event.preventDefault();
@@ -18,6 +18,8 @@ export default class extends Controller {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item);
         }
         this.formTarget.outerHTML = data.form;
+        console.log(this.headerTarget);
+        this.headerTarget.style.display = "none";
       });
   }
 }
