@@ -33,7 +33,7 @@ class DressesController < ApplicationController
     authorize @dress
     @dress.user = current_user
     if @dress.save
-      redirect_to dress_path(@dress)
+      redirect_to listings_path
     else
       render :new
     end
