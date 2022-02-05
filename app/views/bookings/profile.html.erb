@@ -64,10 +64,6 @@
                         <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
                         <%= f.submit 'Reject', class: 'btn btn-outline-secondary' %>
                       <% end %>
-                    <% elsif booking.status == "rejected" %>
-                      <p>Status: Rejected</p>
-                    <% else %>
-                      <p>Status: Accepted</p>
                     <% end %>
                   </div>
                 </div>
@@ -77,7 +73,7 @@
           <% end %>
         </div>
       </div>
-      <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
     </div>
+  <%= link_to 'See All Bookings', bookings_path, class: 'btn btn-outline-secondary float-right mb-3' %>
   </div>
 </div>

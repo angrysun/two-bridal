@@ -1,7 +1,7 @@
 <div class="container">
   <% if @bookings.empty? %>
-    <h3 class="my-3">No bookings yet!
-      <%# <%= link_to "Browse Dresses", dresses_path, class: 'card-link' %>
+    <h3 class="my-3 pb-4">No bookings yet!
+      <%= link_to "Browse Dresses", dresses_path, class: 'card-link' %>
     </h3>
   <% else %>
   <%# User's Bookings %>
@@ -25,9 +25,9 @@
   <% end %>
   <%# User's Booked Listings %>
   <% if @booked.empty? %>
-    <p class="my-3 mb-5">No booked listings yet!
-      <%# <%= link_to "See My Listings", listings_path, class: 'card-link' %>
-    </p>
+    <h3 class="my-3 mb-5">No booked listings yet!
+      <%= link_to "See My Listings", listings_path, class: 'card-link' %>
+    </h3>
   <% else %>
     <h1 class="m-2 text-center">Your Booked Listings</h1>
     <div class="row justify-content-center">
@@ -51,7 +51,4 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to 'Browse Dresses', dresses_path, class: 'btn btn-outline-secondary float-right' %>
-  <%= link_to 'Add a New Dress', new_dress_path, class: 'btn btn-outline-secondary float-right mr-3' %>
-
 </div>
