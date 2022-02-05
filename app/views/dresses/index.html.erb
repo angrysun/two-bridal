@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="my-3">
+  <h3 class="my-3">
     <% if @query == nil %>
     All Our Dresses
     <% elsif @dresses.count > 1 %>
@@ -11,8 +11,8 @@
     <% end %>
   <%# <% @dresses.count > 1 ? @dresses.count dresses :
      @dresses.count dress %>
-  </h2>
+  </h3>
 
   <%= render 'list', dresses: @dresses %>
-  
+
 </div>
