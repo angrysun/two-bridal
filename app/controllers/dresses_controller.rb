@@ -1,5 +1,6 @@
 class DressesController < ApplicationController
   before_action :set_dress, only: %i[show edit update destroy favorite]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @query = params[:query]
