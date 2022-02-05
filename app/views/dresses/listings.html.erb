@@ -1,11 +1,10 @@
 <div class="container">
   <h2 class="my-3">Your Listings</h2>
-  <h3>
+  <p>
     <% if @dresses.count == 0 %>
       No listings yet!
-      <%= link_to 'Add a new dress?', new_dress_path, class: 'card-link' %>
     <% end %>
-  </h3>
+  </p>
   <%# <% @dresses.count > 1 ? @dresses.count dresses :
      @dresses.count dress %>
   <div class="row justify-content-center">
