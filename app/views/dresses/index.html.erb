@@ -13,24 +13,6 @@
      @dresses.count dress %>
   </h2>
 
-  <div class="row justify-content-center">
-    <% @dresses.each do |dress| %>
-    <div class="dress-card text-center mb-3">
-      <%= link_to dress_path(dress) do %>
-        <%= render 'dress_images', dress: dress %>
-      <% end %>
-      <span class="favorite">
-        <% if user_signed_in? %>
-          <% if dress.favorited_by?(current_user) %>
-            <%= link_to "", favorite_path(dress), class: "fa fa-heart pink", id: "favorite-button-#{dress.id}", remote: true %>
-          <% else %>
-            <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
-          <% end %>
-        <% end %>
-      </span>
-      <p><%= dress.description.truncate(30, omission: " ...") %></p>
-      <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
-    </div>
-    <% end %>
-  </div>
+  <%= render 'list', dresses: @dresses %>
+  
 </div>

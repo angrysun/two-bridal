@@ -24,8 +24,10 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
+    <div data-controller="refresh-list">
+      <%= render 'shared/navbar' %>
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
   </body>

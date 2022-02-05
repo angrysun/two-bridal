@@ -1,7 +1,0 @@
-<% if dress.photos.attached? %>
-  <%= cl_image_tag(dress.photos.first.key) %>
-<% elsif dress.dress_url.present? %>
-  <%= image_tag(dress.dress_url) %>
-<% else %>
-  <%= image_tag("bridal_gown_silhouette.png") %>
-<% end %>

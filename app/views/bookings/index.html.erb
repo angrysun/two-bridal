@@ -10,7 +10,7 @@
       <% @bookings.each do |booking| %>
         <div class="booking-card text-center mb-3">
           <%= link_to dress_path(booking.dress) do %>
-            <%= render 'dress_images', dress: booking.dress %>
+            <%= render 'dresses/dress_images', dress: booking.dress %>
           <% end %>
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>
@@ -34,7 +34,7 @@
       <% @booked.each do |booking| %>
         <div class="booking-card text-center mb-3">
           <%= link_to dress_path(booking.dress) do %>
-            <%= render 'dress_images', dress: booking.dress %>
+            <%= render 'dresses/dress_images', dress: booking.dress %>
           <% end %>
           <p>Booking status: <%= booking.status %></p>
           <p>Booking-ID:<%= booking.id %></p>

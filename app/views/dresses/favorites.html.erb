@@ -7,7 +7,7 @@
     <% @fav_dresses.each do |dress| %>
     <div class="dress-card text-center mb-3">
       <%= link_to dress_path(dress) do %>
-        <%= render 'dress_images', dress: dress %>
+        <%= render 'dresses/dress_images.html.erb', dress: dress %>
       <% end %>
       <span class="favorite">
       <% if current_user.favorited?(dress) %>
