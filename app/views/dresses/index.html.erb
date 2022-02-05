@@ -20,7 +20,6 @@
         <%= render 'dress_images', dress: dress %>
       <% end %>
       <span class="favorite">
-
         <% if user_signed_in? %>
           <% if dress.favorited_by?(current_user) %>
             <%= link_to "", favorite_path(dress), class: "fa fa-heart pink", id: "favorite-button-#{dress.id}", remote: true %>
@@ -28,7 +27,6 @@
             <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
           <% end %>
         <% end %>
-
       </span>
       <p><%= dress.description.truncate(30, omission: " ...") %></p>
       <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
