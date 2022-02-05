@@ -12,14 +12,16 @@
       <ul class="navbar-nav me-auto">
         <div class="d-flex">
           <div class="form-inline">
-            <%= form_tag dresses_path, method: :get do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "search-bar form-control",
-                placeholder: "Search All Dresses"
-              %>
-              <%= submit_tag "Search", class: "btn btn-outline-secondary mx-2 my-sm-0" %>
-            <% end %>
+              <%= form_with url: dresses_path, method: :get, html: { data: { refresh_list_target: 'form' } } do |f| %>
+                <%= f.text_field :query,
+                                  class: "search-bar form-control",
+                                  placeholder: "Search All Dresses",
+                                  value: params[:query],
+                                  data: {
+                                    refresh_list_target: 'searchInput',
+                                    action: "keyup->refresh-list#update"
+                                 } %>
+              <% end %>
           </div>
         </div>
         <% if user_signed_in? %>
