@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <div class="d-flex">
           <div class="form-inline">
-              <%= form_with url: dresses_path, method: :get, html: { data: { refresh_list_target: 'form' } } do |f| %>
+              <%= form_with url: dresses_path, method: :get, html: { class: 'mr-3', data: { refresh_list_target: 'form' } } do |f| %>
                 <%= f.text_field :query,
                                   class: "search-bar form-control",
                                   placeholder: "Search All Dresses",
