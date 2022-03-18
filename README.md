@@ -33,5 +33,3 @@ Please make sure to update tests as appropriate.
 [Steven Vasquez](https://github.com/angrysun) 🌞
 [Gary Yau](https://github.com/Gazwai) 🆒
 [Camille Fujisaki](https://github.com/CamillieFu) 👨‍👩‍👧
-
-Special shoutouts to everyone at [Le Wagon Tokyo](https://www.lewagon.com/tokyo).
