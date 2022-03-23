@@ -13,7 +13,7 @@
             <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
           <% end %>
         </span>
-        <%# The code above is causing errors %>
+        <%# The code above is causing errors that disallow access to dresses page %>
         <p><%= dress.description.truncate(30, omission: " ...") %></p>
         <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
       </div>
