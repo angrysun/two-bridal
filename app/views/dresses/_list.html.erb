@@ -5,6 +5,7 @@
         <%= link_to dress_path(dress) do %>
           <%= render 'dresses/dress_images.html.erb', dress: dress %>
         <% end %>
+        <%# This is the code that is cause errors  %>
         <span class="favorite">
           <% if dress.favorited_by?(current_user) %>
             <%= link_to "", favorite_path(dress), class: "fa fa-heart pink", id: "favorite-button-#{dress.id}", remote: true %>
@@ -12,6 +13,7 @@
             <%= link_to "", favorite_path(dress), class: "fa fa-heart", id: "favorite-button-#{dress.id}", remote: true %>
           <% end %>
         </span>
+        <%# The code above is causing errors %>
         <p><%= dress.description.truncate(30, omission: " ...") %></p>
         <p><%= number_to_currency(dress.price_per_day, {unit: '¥', precision: 0}) %> per day</p>
       </div>
