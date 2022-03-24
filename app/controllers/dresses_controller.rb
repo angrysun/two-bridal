@@ -64,14 +64,19 @@ class DressesController < ApplicationController
 
   def favorite
     authorize @dress
-    if current_user.favorited?(@dress)
+    @dresses = policy_scope(Dress).order(created_at: :desc)
+    authorize @dresses
+    if current_user.favorited?(@dress) && user_signed_in?
       current_user.unfavorite(@dress)
-    else
+    elsif user_signed_in? && !current_user.favorited?
       current_user.favorite(@dress)
+    else
+      flash[:message] = "Please sign in or sign up to add dresses to your favorites list!"
     end
 
     respond_to do |format|
       format.js
+      format.html
     end
   end
 
