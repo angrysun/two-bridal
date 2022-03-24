@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light-gray;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +11,15 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 38px;
+  padding-bottom: 4px;
+}
+
+#nav {
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  padding: 0;
+  word-spacing: 4px;
+  text-shadow: 2px 2px 4px #000000;
 }
