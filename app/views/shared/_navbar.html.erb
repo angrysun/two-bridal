@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to dresses_path, class: "navbar-brand" do %>
+    <%= link_to dresses_path, class: "navbar-brand", id: "nav" do %>
       <%= image_tag('wedding_dress.png') %>
+        2Bridal
     <% end %>
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,7 +20,7 @@
                                   data: {
                                     refresh_list_target: 'searchInput',
                                     action: "keyup->refresh-list#update"
-                                 } %>
+                                  } %>
               <% end %>
           </div>
         </div>
