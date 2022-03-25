@@ -68,15 +68,17 @@ class DressesController < ApplicationController
     authorize @dresses
     if current_user.favorited?(@dress) && user_signed_in?
       current_user.unfavorite(@dress)
-    elsif user_signed_in? && !current_user.favorited?
+    elsif user_signed_in?
       current_user.favorite(@dress)
     else
       flash[:message] = "Please sign in or sign up to add dresses to your favorites list!"
+      redirect_to dresses_path
     end
 
     respond_to do |format|
       format.js
-      format.html
+      format.html { render partial: 'list.html', locals: { dresses: @dresses } }
+      format.text { render partial: 'list.html', locals: { dresses: @dresses } }
     end
   end
 
