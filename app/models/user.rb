@@ -4,8 +4,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :bookings
   has_one_attached :avatar
-  # Need to double check with Teacher if these BOOKINGS associations are OK.
-  # Also, our dependent destroy callings
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
