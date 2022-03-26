@@ -10,7 +10,6 @@ class DressesController < ApplicationController
     else
       @dresses = Dress.all
     end
-
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'list.html', locals: { dresses: @dresses } }
@@ -58,7 +57,6 @@ class DressesController < ApplicationController
     authorize @dress
     @dress.destroy
     flash[:remove] = "Successfully deleted"
-
     redirect_to listings_path
   end
 
@@ -69,7 +67,6 @@ class DressesController < ApplicationController
     else
       current_user.favorite(@dress)
     end
-
     respond_to do |format|
       format.js
     end
@@ -79,7 +76,6 @@ class DressesController < ApplicationController
     @dresses = policy_scope(Dress).order(created_at: :desc)
     @fav_dresses = current_user.all_favorited
     authorize @dresses
-
     respond_to do |format|
       format.html
     end
