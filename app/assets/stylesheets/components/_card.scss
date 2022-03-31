@@ -81,3 +81,13 @@
     border-radius: 8px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .dress-card {
+    margin-left: 0;
+  }
+
+  .carousel-dress-card {
+    margin-left: 0;
+  }
+}
