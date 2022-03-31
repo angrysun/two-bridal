@@ -62,6 +62,8 @@ class DressesController < ApplicationController
 
   def favorite
     authorize @dress
+    @dresses = policy_scope(Dress).order(created_at: :desc)
+    authorize @dresses
     if current_user.favorited?(@dress)
       current_user.unfavorite(@dress)
     else
@@ -69,6 +71,8 @@ class DressesController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.html { render 'index.html', locals: { dresses: @dresses } }
+      format.text { render 'index.html', locals: { dresses: @dresses } }
     end
   end
 
