@@ -1,5 +1,5 @@
 george:
   email: "george@abitbol.com"
-  password: "1234567"
+  # encrypted_password: "1234567"
   first_name: "George"
   last_name: "Abitbol"
