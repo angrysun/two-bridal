@@ -1,0 +1,27 @@
+dressie:
+  brand: "Versace"
+  color: "Cream"
+  size: 2
+  style: "Column"
+  description: "gorgeous and chic"
+  price_per_day: 9000
+  user_id: 9
+  id: 1
+dresso:
+  brand: "Gucci"
+  color: "White"
+  size: 2
+  style: "Princess"
+  description: "gorgeous and chic"
+  price_per_day: 8000
+  user_id: 9
+  id: 2
+dressa:
+  brand: "Prada"
+  color: "White"
+  size: 4
+  style: "Trumpet"
+  description: "gorgeous and chic"
+  price_per_day: 13000
+  user_id: 9
+  id: 3
