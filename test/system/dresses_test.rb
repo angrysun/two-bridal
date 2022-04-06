@@ -3,7 +3,7 @@ require "application_system_test_case"
 class DressesTest < ApplicationSystemTestCase
 require "test_helper"
 
-  # test that the dress index is displaying all products
+  # test that the dress index is displaying all dresses
   test "visiting the dress index" do
     visit "/dresses"
     assert_selector "h3", text: "All Our Dresses"
@@ -27,6 +27,5 @@ require "test_helper"
     # Should be redirected to listings with new dress
     assert_equal listings_path, page.current_path
     assert_text "Flowy and gorgeous"
-    # save_and_open_screenshot
   end
 end
