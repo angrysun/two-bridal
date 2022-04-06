@@ -6,6 +6,7 @@ dressie:
   description: "gorgeous and chic"
   price_per_day: 9000
   user_id: 9
+  id: 1
 dresso:
   brand: "Gucci"
   color: "White"
@@ -14,6 +15,7 @@ dresso:
   description: "gorgeous and chic"
   price_per_day: 8000
   user_id: 9
+  id: 2
 dressa:
   brand: "Prada"
   color: "White"
@@ -22,3 +24,4 @@ dressa:
   description: "gorgeous and chic"
   price_per_day: 13000
   user_id: 9
+  id: 3
