@@ -23,11 +23,7 @@ require "test_helper"
     fill_in "Description", with: "Flowy and gorgeous unique dress."
     fill_in "Price per day", with: 9000
 
-    # save_and_open_screenshot
-
     click_on 'Create Dress'
-    # save_and_open_screenshot
-
     # Should be redirected to listings with new dress
     assert_equal listings_path, page.current_path
     assert_text "Flowy and gorgeous"
