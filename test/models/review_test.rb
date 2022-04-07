@@ -7,7 +7,7 @@ class ReviewTest < ActiveSupport::TestCase
   end
 
   test "Review with incomplete data shouldn't save" do
-    review = Review.new
+    review = Review.new(rating: 5)
     assert_not review.save
   end
 end
