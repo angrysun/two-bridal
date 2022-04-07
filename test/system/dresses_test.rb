@@ -1,7 +1,7 @@
 require "application_system_test_case"
 
 class DressesTest < ApplicationSystemTestCase
-require "test_helper"
+  require "test_helper"
 
   # test that the dress index is displaying all dresses
   test "visiting the dress index" do
