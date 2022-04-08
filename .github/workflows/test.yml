@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Checkout repository # copies your code into a runner VM
         uses: actions/checkout@v2 # short for https://github.com/actions/checkout
-      - name: Hello World!
+      - name: Test Test Test!
         run: echo "Hello World!" # runs the script
